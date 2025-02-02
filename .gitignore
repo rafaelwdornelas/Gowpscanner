@@ -16,6 +16,9 @@ vendor/
 # Módulos do Go (ignore go.sum, mas mantenha go.mod)
 go.sum
 
+# Arquivos .rar
+*.rar
+
 # Pastas que não devem ser enviadas ao repositório
 retornos/
 database/
