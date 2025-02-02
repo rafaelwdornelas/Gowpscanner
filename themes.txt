@@ -6,6 +6,7 @@ authentic|all|Authentic Theme - Arbitrary File Download
 beauty-premium|= 1.0.8|Beauty & Clean Theme 1.0.8 - Arbitrary File Upload
 bolster|all|Multiple themes - Unauthenticated Arbitrary File Upload
 bootstrap-ultimate|<= 1.4.9|Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion
+bricks|<= 1.9.6|Bricks <= 1.9.6 - Unauthenticated Remote Code Execution
 cas|<= 1.0.0|CAS <= 1.0.0 - Unauthenticated Arbitrary File Access
 clean-retina|< 3.0.7|Clean Retina < 3.0.7 - Unauthenticated Local File Inclusion
 clockstone|<= 1.2|Clockstone <= 1.2 - Arbitrary File Upload
@@ -24,11 +25,11 @@ jobify|<= 4.2.3|Jobify - Job Board WordPress Theme <= 4.2.3 - Unauthenticated Ar
 kingclub-theme|all|Multiple themes - Unauthenticated Arbitrary File Upload
 listingo|< 3.2.7|Listingo < 3.2.7 - Unauthenticated Arbitrary File Upload
 luxe|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
-mTheme-Unus|all|mTheme-Unus Theme - Local File Inclusion (LFI)
 meta-news|< 1.1.8|Meta News < 1.1.8 - Unauthenticated Local File Inclusion
 method|all|WordPress Slider Revolution - Local File Disclosure
 minus|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 motor|< 3.1.0|Motor theme < 3.1.0 - Unauthenticated Local File Inclusion
+mTheme-Unus|all|mTheme-Unus Theme - Local File Inclusion (LFI)
 neosense|< 1.8|Neosense Theme < 1.8 - Unrestricted File Upload
 newscard|< 1.4|NewsCard < 1.4 - Unauthenticated Local File Inclusion
 noo-jobmonster|< 4.7.5|Jobmonster < 4.7.5 - Unauthenticated Arbitrary File Deletion
@@ -37,18 +38,17 @@ porto|< 7.1.1|Porto < 7.1.1 - Unauthenticated Local File Inclusion via porto_aja
 pressive|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 rehub-theme|< 19.6.2|Rehub < 19.6.2 - Unauthenticated Local File Inclusion
 rise|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+seotheme|all|Wordpress Seotheme - Remote Code Execution Unauthenticated
 soledad|< 8.6.0|Soledad < 8.6.0 - Unauthenticated Limited Local File Inclusion
 soundblast|all|Multiple themes - Unauthenticated Arbitrary File Upload
-spikes|all|Multiple themes - Unauthenticated Arbitrary File Upload
 spikes-black|all|Multiple themes - Unauthenticated Arbitrary File Upload
+spikes|all|Multiple themes - Unauthenticated Arbitrary File Upload
 squared|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 statfort|all|Multiple themes - Unauthenticated Arbitrary File Upload
 stockholm|< 9.7|Stockholm < 9.7 - Unauthenticated Local File Inclusion
 storied|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 voice|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 westand|all|Multiple themes - Unauthenticated Arbitrary File Upload
-wplms|< 4.963|WPLMS Learning Management System for WordPress < 4.963 - Unauthenticated Arbitrary File Read and Deletion
 wplms|< 1.9.9.1|WPLMS < 1.9.9.1 - Unauthenticated Arbitrary File Upload
+wplms|< 4.963|WPLMS Learning Management System for WordPress < 4.963 - Unauthenticated Arbitrary File Read and Deletion
 xstore|< 9.3.9|XStore < 9.3.9 - Unauthenticated Local File Inclusion
-seotheme|all|Wordpress Seotheme - Remote Code Execution Unauthenticated
-bricks|<= 1.9.6|Bricks <= 1.9.6 - Unauthenticated Remote Code Execution
