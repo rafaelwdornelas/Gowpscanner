@@ -1,0 +1,9 @@
+first.php|Uname
+admin.php
+themes.php|403WebShell
+admin.php|403WebShell
+saskra.php|name='xxx'>
+log-mama/function.php|
+bk/index.php|TheAlmightyZeus
+mailer.php
+leaf.php

@@ -1,0 +1,74 @@
+5star|all|5star by Templatic - CSRF File Upload
+adifier-system|< 3.1.4|Adifier System < 3.1.4 - Unauthenticated Local File Inclusion
+aidreform|all|Multiple themes - Unauthenticated Arbitrary File Upload
+antioch|all|Antioch Theme - Arbitrary File Download
+authentic|all|Authentic Theme - Arbitrary File Download
+beauty-premium|= 1.0.8|Beauty & Clean Theme 1.0.8 - Arbitrary File Upload
+bolster|all|Multiple themes - Unauthenticated Arbitrary File Upload
+bootstrap-ultimate|<= 1.4.9|Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion
+cas|<= 1.0.0|CAS <= 1.0.0 - Unauthenticated Arbitrary File Access
+clean-retina|< 3.0.7|Clean Retina < 3.0.7 - Unauthenticated Local File Inclusion
+clockstone|<= 1.2|Clockstone <= 1.2 - Arbitrary File Upload
+dailydeal|all|DailyDeal - File Upload Remote Code Execution
+deep-blue|= 1.9.2|Deep-Blue 1.9.2 - Arbitrary File Upload
+designfolio-plus|<= 1.2|DesignFolio Plus Theme <= 1.2 - Arbitrary File Upload
+epic|all|epic Theme - Arbitrary File Download
+estrutura-basica|all|Estrutura-Basica - Local File Download
+focusblog|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+footysquare|all|Multiple themes - Unauthenticated Arbitrary File Upload
+greyd_suite|< 1.2.7|GREYD.SUITE < 1.2.7 - Unauthenticated File Upload to RCE
+holding_pattern|<= 0.6|Holding Pattern Theme <= 0.6 - Arbitrary File Upload
+ignition|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+intrepidity|<= 1.5.1|Intrepidity <= 1.5.1 - File Upload and Option Update via CSRF
+jobify|<= 4.2.3|Jobify - Job Board WordPress Theme <= 4.2.3 - Unauthenticated Arbitrary File Read
+kingclub-theme|all|Multiple themes - Unauthenticated Arbitrary File Upload
+listingo|< 3.2.7|Listingo < 3.2.7 - Unauthenticated Arbitrary File Upload
+luxe|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+mTheme-Unus|all|mTheme-Unus Theme - Local File Inclusion (LFI)
+meta-news|< 1.1.8|Meta News < 1.1.8 - Unauthenticated Local File Inclusion
+method|all|WordPress Slider Revolution - Local File Disclosure
+minus|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+motor|< 3.1.0|Motor theme < 3.1.0 - Unauthenticated Local File Inclusion
+neosense|< 1.8|Neosense Theme < 1.8 - Unrestricted File Upload
+newscard|< 1.4|NewsCard < 1.4 - Unauthenticated Local File Inclusion
+noo-jobmonster|< 4.7.5|Jobmonster < 4.7.5 - Unauthenticated Arbitrary File Deletion
+performag|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+porto|< 7.1.1|Porto < 7.1.1 - Unauthenticated Local File Inclusion via porto_ajax_posts
+pressive|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+rehub-theme|< 19.6.2|Rehub < 19.6.2 - Unauthenticated Local File Inclusion
+rise|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+soledad|< 8.6.0|Soledad < 8.6.0 - Unauthenticated Limited Local File Inclusion
+soundblast|all|Multiple themes - Unauthenticated Arbitrary File Upload
+spikes|all|Multiple themes - Unauthenticated Arbitrary File Upload
+spikes-black|all|Multiple themes - Unauthenticated Arbitrary File Upload
+squared|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+statfort|all|Multiple themes - Unauthenticated Arbitrary File Upload
+stockholm|< 9.7|Stockholm < 9.7 - Unauthenticated Local File Inclusion
+storied|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+voice|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
+westand|all|Multiple themes - Unauthenticated Arbitrary File Upload
+wplms|< 4.963|WPLMS Learning Management System for WordPress < 4.963 - Unauthenticated Arbitrary File Read and Deletion
+wplms|< 1.9.9.1|WPLMS < 1.9.9.1 - Unauthenticated Arbitrary File Upload
+xstore|< 9.3.9|XStore < 9.3.9 - Unauthenticated Local File Inclusion
+seotheme|all|Wordpress Seotheme - Remote Code Execution Unauthenticated
+linpreview|all|Shell Upload
+wp-pridmag|all|Shell Upload
+ccx|all|Shell Upload
+qualifire|all|Shell Upload
+Ghost|all|Shell Upload
+kiddo|all|Shell Upload
+elemin|all|Shell Upload
+RightNow|all|Shell Upload
+dance-studio|all|Shell Upload
+cubed_v1.2|all|Shell Upload
+saico|all|Shell Upload
+synoptic|all|Shell Upload
+andre|all|Shell Upload
+rarebird|all|Shell Upload
+designplus|all|Shell Upload
+pindol|all|Shell Upload
+cuckootap|all|Shell Upload
+beach_apollo|all|Shell Upload
+centum|all|Shell Upload
+medicate|all|Shell Upload
+MoneyTheme|all|Shell Upload

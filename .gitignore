@@ -1,0 +1,40 @@
+# Binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Compiled binary (exemplo: gowpscanner)
+Gowpscanner
+
+# Output de cobertura
+*.out
+
+# Dependências (vendor, se utilizado)
+vendor/
+
+# Módulos do Go (ignore go.sum, mas mantenha go.mod)
+go.sum
+
+# Pastas que não devem ser enviadas ao repositório
+retornos/
+database/
+
+# Arquivos e diretórios de editores e IDEs
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Arquivos gerados pelo sistema operacional
+.DS_Store
+Thumbs.db
+
+# Diretório de build (se houver)
+build/
+
+# Logs e arquivos temporários
+*.log
+*.tmp
+
+dominios.txt
