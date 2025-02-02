@@ -4,10 +4,14 @@ package scanner
 import (
 	"Gowpscanner/internal/utils"
 	"Gowpscanner/internal/wpdetect"
+	"strings"
 )
 
 // processDomain verifica HTTP/HTTPS, detecta WordPress, etc.
 func processDomain(dominio string) {
+	//retira o http:// e https:// do dominio
+	dominio = strings.Replace(dominio, "http://", "", -1)
+	dominio = strings.Replace(dominio, "https://", "", -1)
 	// Testa HTTPS
 	urlHTTPS := "https://" + dominio
 	okHTTPS := utils.TestURL(urlHTTPS)
