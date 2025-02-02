@@ -1,4 +1,4 @@
-```markdown
+
 # Gowpscanner
 
 **Gowpscanner** é uma ferramenta desenvolvida em Go para escanear sites WordPress em busca de vulnerabilidades e configurações expostas.  
@@ -165,4 +165,4 @@ Distribuído sob a [MIT License](LICENSE). Veja o arquivo LICENSE para mais deta
 
 Desenvolvido por [@rafaelwdornelas](https://github.com/rafaelwdornelas)  
 Contribuições e feedback são muito bem-vindos!
-```
+
