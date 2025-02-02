@@ -51,24 +51,4 @@ wplms|< 4.963|WPLMS Learning Management System for WordPress < 4.963 - Unauthent
 wplms|< 1.9.9.1|WPLMS < 1.9.9.1 - Unauthenticated Arbitrary File Upload
 xstore|< 9.3.9|XStore < 9.3.9 - Unauthenticated Local File Inclusion
 seotheme|all|Wordpress Seotheme - Remote Code Execution Unauthenticated
-linpreview|all|Shell Upload
-wp-pridmag|all|Shell Upload
-ccx|all|Shell Upload
-qualifire|all|Shell Upload
-Ghost|all|Shell Upload
-kiddo|all|Shell Upload
-elemin|all|Shell Upload
-RightNow|all|Shell Upload
-dance-studio|all|Shell Upload
-cubed_v1.2|all|Shell Upload
-saico|all|Shell Upload
-synoptic|all|Shell Upload
-andre|all|Shell Upload
-rarebird|all|Shell Upload
-designplus|all|Shell Upload
-pindol|all|Shell Upload
-cuckootap|all|Shell Upload
-beach_apollo|all|Shell Upload
-centum|all|Shell Upload
-medicate|all|Shell Upload
-MoneyTheme|all|Shell Upload
+bricks|<= 1.9.6|Bricks <= 1.9.6 - Unauthenticated Remote Code Execution
