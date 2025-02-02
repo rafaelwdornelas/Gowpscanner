@@ -3,6 +3,7 @@ package scanner
 
 import (
 	"Gowpscanner/internal/utils"
+	"Gowpscanner/pkg/update"
 	"bufio"
 	"fmt"
 	"os"
@@ -23,6 +24,11 @@ const (
 )
 
 func init() {
+	// 1) Atualiza a base de dados (ou verifica se está atualizada)
+	update.BaixaDatabase()
+
+	// 2) Cria as pastas de retornos (antes de rodar)
+	utils.CreateFolders()
 	// Exemplo:
 	configList = utils.CarregarListas("database/config_backups.txt")
 	dbExportsList = utils.CarregarListas("database/db_exports.txt")
