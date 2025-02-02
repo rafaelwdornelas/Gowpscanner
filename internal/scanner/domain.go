@@ -26,6 +26,7 @@ func processDomain(dominio string) {
 			CheckShell(novaURL)
 		} else {
 			utils.Info("%s não parece ser WordPress", dominio)
+			CheckShell(urlHTTPS)
 			CheckEnv(urlHTTPS)
 		}
 	} else {
@@ -42,6 +43,7 @@ func processDomain(dominio string) {
 				CheckShell(novaURL)
 			} else {
 				utils.Info("%s não parece ser WordPress", dominio)
+				CheckShell(urlHTTP)
 				CheckEnv(urlHTTP)
 			}
 		} else {
