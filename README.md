@@ -1,6 +1,8 @@
 
 # Gowpscanner
 
+![Gowpscanner](https://raw.githubusercontent.com/rafaelwdornelas/Gowpscanner/refs/heads/main/Screenshot.png)
+
 **Gowpscanner** é uma ferramenta desenvolvida em Go para escanear sites WordPress em busca de vulnerabilidades e configurações expostas.  
 O scanner identifica se o site está servindo em HTTP/HTTPS, verifica se o CMS é WordPress (inclusive extraindo a versão), e realiza diversas checagens, como:
 
