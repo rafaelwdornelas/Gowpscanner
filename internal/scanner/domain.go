@@ -41,10 +41,12 @@ func processDomain(dominio string) {
 				CheckPlugins(novaURL, dominio)
 				CheckThemes(novaURL, dominio)
 				CheckShell(novaURL)
+				CheckYaml(novaURL)
 			} else {
 				utils.Info("%s não parece ser WordPress", dominio)
 				CheckShell(urlHTTP)
 				CheckEnv(urlHTTP)
+				CheckYaml(urlHTTP)
 			}
 		} else {
 			// Tenta HTTPS com www
@@ -58,10 +60,12 @@ func processDomain(dominio string) {
 					CheckPlugins(novaURL, dominio)
 					CheckThemes(novaURL, dominio)
 					CheckShell(novaURL)
+					CheckYaml(novaURL)
 				} else {
 					utils.Info("%s não parece ser WordPress", dominio)
 					CheckShell(urlHTTPS2)
 					CheckEnv(urlHTTPS2)
+					CheckYaml(urlHTTPS2)
 				}
 			} else {
 				// Tenta HTTPS com www
@@ -75,10 +79,12 @@ func processDomain(dominio string) {
 						CheckPlugins(novaURL, dominio)
 						CheckThemes(novaURL, dominio)
 						CheckShell(novaURL)
+						CheckYaml(novaURL)
 					} else {
 						utils.Info("%s não parece ser WordPress", dominio)
 						CheckShell(urlHTTP2)
 						CheckEnv(urlHTTP2)
+						CheckYaml(urlHTTP2)
 					}
 				} else {
 					utils.Error("%s não está acessível em HTTP nem HTTPS", dominio)

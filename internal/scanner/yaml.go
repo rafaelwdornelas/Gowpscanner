@@ -40,6 +40,11 @@ func CheckYaml(baseURL string) {
 			strings.Contains(lowerContent, "secret:") ||
 			strings.Contains(lowerContent, "token:") ||
 			strings.Contains(lowerContent, "private_key:") ||
+			strings.Contains(lowerContent, "access_key:") ||
+			strings.Contains(lowerContent, "access_token:") ||
+			strings.Contains(lowerContent, "consumer_key:") ||
+			strings.Contains(lowerContent, "consumer_secret:") ||
+			strings.Contains(lowerContent, "smtp:") ||
 			strings.Contains(lowerContent, "password:") {
 			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
 			utils.LogSave(yamlURL, "yaml-production.txt")
