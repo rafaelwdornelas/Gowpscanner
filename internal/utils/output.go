@@ -2,6 +2,7 @@ package utils
 
 import (
 	"fmt"
+	"time"
 )
 
 // Definição de cores via ANSI escape codes
@@ -16,23 +17,28 @@ const (
 // Info exibe uma mensagem de informação em azul.
 func Info(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
-	fmt.Printf("%s[INFO]%s %s\n", ColorBlue, ColorReset, msg)
+	fmt.Printf("%s - %s[INFO]%s %s\n", GetTime(), ColorBlue, ColorReset, msg)
 }
 
 // Ok exibe uma mensagem de sucesso em verde.
 func Ok(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
-	fmt.Printf("%s[OK]%s %s\n", ColorGreen, ColorReset, msg)
+	fmt.Printf("%s - %s[OK]%s %s\n", GetTime(), ColorGreen, ColorReset, msg)
 }
 
 // Warning exibe uma mensagem de aviso em amarelo.
 func Warning(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
-	fmt.Printf("%s[WARNING]%s %s\n", ColorYellow, ColorReset, msg)
+	fmt.Printf("%s - %s[WARNING]%s %s\n", GetTime(), ColorYellow, ColorReset, msg)
 }
 
 // Error exibe uma mensagem de erro em vermelho.
 func Error(format string, a ...interface{}) {
 	msg := fmt.Sprintf(format, a...)
-	fmt.Printf("%s[ERROR]%s %s\n", ColorRed, ColorReset, msg)
+	fmt.Printf("%s - %s[ERROR]%s %s\n", GetTime(), ColorRed, ColorReset, msg)
+}
+
+// função que retorna HH:MM:SS:MS
+func GetTime() string {
+	return time.Now().Format("15:04:05.000")
 }
