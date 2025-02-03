@@ -11,11 +11,21 @@ import (
 // e salva a URL do .env válido no arquivo env-production.txt.
 func CheckEnv(baseURL string) {
 	// Lista de caminhos a serem verificados
+	// Lista de caminhos e nomes de arquivos para verificar
 	paths := []string{
 		"/.env",
+		"/.env.example",
+		"/.env.production",
+		"/.env.development",
+		"/.env.local",
 		"/admin/.env",
 		"/shop/.env",
 		"/api/.env",
+		"/config/.env",
+		"/backup/.env",
+		"/env",
+		"/config.env",
+		"/configuration/.env",
 	}
 
 	// Itera sobre cada caminho e faz a verificação
@@ -41,6 +51,10 @@ func CheckEnv(baseURL string) {
 		// Verifica se o conteúdo contém algumas chaves típicas de um arquivo .env
 		if strings.Contains(lowerContent, "app_name=") ||
 			strings.Contains(lowerContent, "app_key=") ||
+			strings.Contains(lowerContent, "api=") ||
+			strings.Contains(lowerContent, "password=") ||
+			strings.Contains(lowerContent, "senha=") ||
+			strings.Contains(lowerContent, "key=") ||
 			strings.Contains(lowerContent, "app_secret=") ||
 			strings.Contains(lowerContent, "smtp=") ||
 			strings.Contains(lowerContent, "mail_host=") ||
