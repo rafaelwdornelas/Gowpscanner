@@ -91,7 +91,7 @@ func processarTimThumbThemes(dominio, slug string) bool {
 			if found {
 				utils.LogSave(urlTimthumb, "timthumbs.txt")
 				utils.BeepAlert()
-				utils.Info("Timthumb encontrado em %s", dominio)
+				utils.Warning("Timthumb encontrado em %s", dominio)
 				return true
 			}
 		}

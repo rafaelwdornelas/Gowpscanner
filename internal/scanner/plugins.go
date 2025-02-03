@@ -34,7 +34,8 @@ func CheckPlugins(baseURL, dominio string) {
 			for _, pluginInfo := range pluginList {
 				if pluginInfo.Slug == slug {
 					if pluginInfo.Description == "Timthumb" {
-						utils.Info("Plugin %s encontrado (Timthumb) em %s", slug, dominio)
+						utils.Warning("Plugin %s encontrado (Timthumb) em %s", slug, dominio)
+						utils.BeepAlert()
 						utils.LogSave(fmt.Sprintf("%s | version:%s", urlReadme, version), "PluginsTimthumb.txt")
 						if processarTimThumbPlugins(baseURL, slug) {
 							encontrouFalha = true
