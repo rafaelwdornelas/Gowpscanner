@@ -2,17 +2,22 @@ package utils
 
 import (
 	"crypto/tls"
-	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"time"
 
 	browser "github.com/EDDYCJY/fake-useragent"
 )
 
+func init() {
+	// Redireciona a saída global dos logs para descartar todas as mensagens.
+	log.SetOutput(io.Discard)
+}
+
 // Global http.Client reutilizável para todas as requisições, com timeout reduzido para acelerar o scan.
 var client = &http.Client{
-	Timeout: 3 * time.Second,
+	Timeout: 5 * time.Second,
 	Transport: &http.Transport{
 		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
 	},
@@ -62,10 +67,6 @@ func GetBody(url string) (string, error) {
 		return "", err
 	}
 	defer resp.Body.Close()
-
-	if resp.StatusCode != 200 {
-		return "", fmt.Errorf("status code: %d", resp.StatusCode)
-	}
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {
