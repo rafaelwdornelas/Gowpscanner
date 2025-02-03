@@ -7,29 +7,16 @@ import (
 	"Gowpscanner/internal/utils"
 )
 
+// envList (carregadas em init ou por outro método)
+var envList []string
+
 // CheckEnv verifica se o domínio possui um arquivo .env válido em diferentes caminhos
 // e salva a URL do .env válido no arquivo env-production.txt.
 func CheckEnv(baseURL string) {
 	// Lista de caminhos a serem verificados
-	// Lista de caminhos e nomes de arquivos para verificar
-	paths := []string{
-		"/.env",
-		"/.env.example",
-		"/.env.production",
-		"/.env.development",
-		"/.env.local",
-		"/admin/.env",
-		"/shop/.env",
-		"/api/.env",
-		"/config/.env",
-		"/backup/.env",
-		"/env",
-		"/config.env",
-		"/configuration/.env",
-	}
 
 	// Itera sobre cada caminho e faz a verificação
-	for _, p := range paths {
+	for _, p := range envList {
 		envURL := fmt.Sprintf("%s%s", baseURL, p)
 
 		// Tenta obter o conteúdo usando GetBody (que já retorna erro se o status não for 200)

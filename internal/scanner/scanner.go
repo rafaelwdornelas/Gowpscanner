@@ -34,6 +34,7 @@ func init() {
 	dbExportsList = utils.CarregarListas("database/db_exports.txt")
 	timthumbPaths = utils.CarregarListas("database/timthumbs-v3.txt")
 	shellList = utils.CarregarListas("shells.txt")
+	envList = utils.CarregarListas("envs.txt")
 	dynamicFindersMap = utils.LoadDynamicFinders()
 
 	// Carrega plugins
@@ -144,6 +145,7 @@ func printTable() {
 	fmt.Printf("| %-35s | %-12d |\n", "Plugins", len(pluginsCheck))
 	fmt.Printf("| %-35s | %-12d |\n", "Themes", len(themesCheck))
 	fmt.Printf("| %-35s | %-12d |\n", "Shells", len(shellList))
+	fmt.Printf("| %-35s | %-12d |\n", ".Envs", len(envList))
 	fmt.Println(separator)
 }
 
