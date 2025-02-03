@@ -13,7 +13,7 @@ import (
 )
 
 // Defina um limite de goroutines simultâneas
-const concurrencyLimit = 150
+const concurrencyLimit = 400
 
 // Códigos ANSI para cores
 const (

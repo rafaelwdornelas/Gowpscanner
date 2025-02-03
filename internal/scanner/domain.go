@@ -47,7 +47,43 @@ func processDomain(dominio string) {
 				CheckEnv(urlHTTP)
 			}
 		} else {
-			utils.Error("%s não está acessível em HTTP nem HTTPS", dominio)
+			// Tenta HTTPS com www
+			urlHTTPS2 := "https://www." + dominio
+			okHTTPS2 := utils.TestURL(urlHTTPS2)
+			if okHTTPS2 {
+				valido, novaURL := wpdetect.IsWordPress(urlHTTPS2)
+				if valido {
+					utils.LogSave(novaURL, "wordpress.txt")
+					CheckConfigBackups(novaURL)
+					CheckPlugins(novaURL, dominio)
+					CheckThemes(novaURL, dominio)
+					CheckShell(novaURL)
+				} else {
+					utils.Info("%s não parece ser WordPress", dominio)
+					CheckShell(urlHTTPS2)
+					CheckEnv(urlHTTPS2)
+				}
+			} else {
+				// Tenta HTTPS com www
+				urlHTTP2 := "http://www." + dominio
+				okHTTP2 := utils.TestURL(urlHTTPS2)
+				if okHTTP2 {
+					valido, novaURL := wpdetect.IsWordPress(urlHTTP2)
+					if valido {
+						utils.LogSave(novaURL, "wordpress.txt")
+						CheckConfigBackups(novaURL)
+						CheckPlugins(novaURL, dominio)
+						CheckThemes(novaURL, dominio)
+						CheckShell(novaURL)
+					} else {
+						utils.Info("%s não parece ser WordPress", dominio)
+						CheckShell(urlHTTP2)
+						CheckEnv(urlHTTP2)
+					}
+				} else {
+					utils.Error("%s não está acessível em HTTP nem HTTPS", dominio)
+				}
+			}
 		}
 	}
 }
