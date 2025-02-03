@@ -26,6 +26,8 @@ var (
 	testarShells = true
 	// Testar .env?
 	testarEnv = true
+	// Testar yaml?
+	testarYaml = true
 	// Testar timthumbs?
 	testarTimthumbs = true
 )
@@ -72,6 +74,9 @@ func init() {
 	if val := os.Getenv("TESTAR_TIMTHUMBS"); val != "" {
 		testarTimthumbs = strings.ToLower(val) == "true"
 	}
+	if val := os.Getenv("TESTAR_YAML"); val != "" {
+		testarYaml = strings.ToLower(val) == "true"
+	}
 
 	// Exemplo:
 	configList = utils.CarregarListas("database/config_backups.txt")
@@ -79,6 +84,9 @@ func init() {
 	timthumbPaths = utils.CarregarListas("database/timthumbs-v3.txt")
 	if testarShells {
 		shellList = utils.CarregarListas("shells.txt")
+	}
+	if testarYaml {
+		yamlList = utils.CarregarListas("yamls.txt")
 	}
 
 	if testarEnv {
@@ -191,6 +199,7 @@ func printTable() {
 	fmt.Printf("| %-35s | %-12d |\n", "Themes", len(themesCheck))
 	fmt.Printf("| %-35s | %-12d |\n", "Shells", len(shellList))
 	fmt.Printf("| %-35s | %-12d |\n", ".Envs", len(envList))
+	fmt.Printf("| %-35s | %-12d |\n", "Yamls", len(yamlList))
 	fmt.Println(separator)
 }
 
