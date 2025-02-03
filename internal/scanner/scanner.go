@@ -7,13 +7,28 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strconv"
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/joho/godotenv"
 )
 
-// Defina um limite de goroutines simultâneas
-const concurrencyLimit = 400
+var (
+	//LIMITE DE CONCORRÊNCIA
+	concurrencyLimit = 400
+	// Testar plugins?
+	testarPlugins = true
+	// Testar temas?
+	testarTemas = true
+	// Testar shells?
+	testarShells = true
+	// Testar .env?
+	testarEnv = true
+	// Testar timthumbs?
+	testarTimthumbs = true
+)
 
 // Códigos ANSI para cores
 const (
@@ -29,70 +44,100 @@ func init() {
 
 	// 2) Cria as pastas de retornos (antes de rodar)
 	utils.CreateFolders()
+	// Carrega variáveis de ambiente
+	// Tenta carregar o arquivo .env (ele deve estar na raiz do projeto)
+	err := godotenv.Load()
+	if err != nil {
+		fmt.Println("Nenhum arquivo .env encontrado, usando valores padrão")
+	}
+
+	// Atualiza as variáveis se as variáveis de ambiente estiverem definidas
+	if val := os.Getenv("CONCURRENCY_LIMIT"); val != "" {
+		if n, err := strconv.Atoi(val); err == nil {
+			concurrencyLimit = n
+		}
+	}
+	if val := os.Getenv("TESTAR_PLUGINS"); val != "" {
+		testarPlugins = strings.ToLower(val) == "true"
+	}
+	if val := os.Getenv("TESTAR_TEMAS"); val != "" {
+		testarTemas = strings.ToLower(val) == "true"
+	}
+	if val := os.Getenv("TESTAR_SHELLS"); val != "" {
+		testarShells = strings.ToLower(val) == "true"
+	}
+	if val := os.Getenv("TESTAR_ENV"); val != "" {
+		testarEnv = strings.ToLower(val) == "true"
+	}
+	if val := os.Getenv("TESTAR_TIMTHUMBS"); val != "" {
+		testarTimthumbs = strings.ToLower(val) == "true"
+	}
+
 	// Exemplo:
 	configList = utils.CarregarListas("database/config_backups.txt")
 	dbExportsList = utils.CarregarListas("database/db_exports.txt")
 	timthumbPaths = utils.CarregarListas("database/timthumbs-v3.txt")
-	shellList = utils.CarregarListas("shells.txt")
-	envList = utils.CarregarListas("envs.txt")
+	if testarShells {
+		shellList = utils.CarregarListas("shells.txt")
+	}
+
+	if testarEnv {
+		envList = utils.CarregarListas("envs.txt")
+	}
 	dynamicFindersMap = utils.LoadDynamicFinders()
 
-	// Carrega plugins
-	pList := utils.CarregarPluginsVulneraveis("plugins.txt")
-	for _, p := range pList {
-		pluginList = append(pluginList, PluginVulneravel{
-			Slug: p.Slug, Comparator: p.Comparator, Version: p.Version, Description: p.Description,
-		})
+	if testarPlugins {
+		// Carrega plugins
+		pList := utils.CarregarPluginsVulneraveis("plugins.txt")
+		for _, p := range pList {
+			pluginList = append(pluginList, PluginVulneravel{
+				Slug: p.Slug, Comparator: p.Comparator, Version: p.Version, Description: p.Description,
+			})
+		}
 	}
 
-	// Carrega themes
-	tList := utils.CarregarPluginsVulneraveis("themes.txt")
-	for _, t := range tList {
-		themesList = append(themesList, PluginVulneravel{
-			Slug: t.Slug, Comparator: t.Comparator, Version: t.Version, Description: t.Description,
-		})
+	if testarTemas {
+		// Carrega themes
+		tList := utils.CarregarPluginsVulneraveis("themes.txt")
+		for _, t := range tList {
+			themesList = append(themesList, PluginVulneravel{
+				Slug: t.Slug, Comparator: t.Comparator, Version: t.Version, Description: t.Description,
+			})
+		}
 	}
 
-	//faz um for em todos os timthumbs e pega todos que começam com wp-content/plugins/ e adiciona na lista de plugins a serem verificados
-	for _, timthumb := range timthumbPaths {
-		if strings.Contains(timthumb, "wp-content/plugins/") {
-			plugin := strings.Split(timthumb, "/")
-			// Na hora de inserir:
-			if !existsPlugin(pluginList, plugin[2], "Timthumb") {
+	if testarTimthumbs {
+		//faz um for em todos os timthumbs e pega todos que começam com wp-content/plugins/ e adiciona na lista de plugins a serem verificados
+		for _, timthumb := range timthumbPaths {
+			if strings.Contains(timthumb, "wp-content/plugins/") {
+				plugin := strings.Split(timthumb, "/")
+				// Na hora de inserir:
+				if !existsPlugin(pluginList, plugin[2], "Timthumb") {
 
-				//fmt.Println(plugin[2])
-				pluginList = append(pluginList, PluginVulneravel{
-					Slug:        plugin[2],
-					Comparator:  "all",
-					Version:     "0",
-					Description: "Timthumb",
-				})
-			}
-		} else if strings.Contains(timthumb, "wp-content/themes/") {
-			theme := strings.Split(timthumb, "/")
-			//fmt.Println(theme[2])
-			if !existsPlugin(themesList, theme[2], "Timthumb") {
-				//fmt.Println("Adicionando theme")
-				themesList = append(themesList, PluginVulneravel{
-					Slug:        theme[2],
-					Comparator:  "all",
-					Version:     "0",
-					Description: "Timthumb",
-				})
+					//fmt.Println(plugin[2])
+					pluginList = append(pluginList, PluginVulneravel{
+						Slug:        plugin[2],
+						Comparator:  "all",
+						Version:     "0",
+						Description: "Timthumb",
+					})
+				}
+			} else if strings.Contains(timthumb, "wp-content/themes/") {
+				theme := strings.Split(timthumb, "/")
+				//fmt.Println(theme[2])
+				if !existsPlugin(themesList, theme[2], "Timthumb") {
+					//fmt.Println("Adicionando theme")
+					themesList = append(themesList, PluginVulneravel{
+						Slug:        theme[2],
+						Comparator:  "all",
+						Version:     "0",
+						Description: "Timthumb",
+					})
+				}
 			}
 		}
 	}
-	/*
-		//limpa o themeslist e coloca só um mobile-smart
-		themesList = []PluginVulneravel{
-			{
-				Slug:        "arras-theme",
-				Comparator:  "all",
-				Version:     "0",
-				Description: "Timthumb",
-			},
-		}
-	*/
+
 	// Gera a lista de slugs
 	for _, plg := range pluginList {
 		if !strings.Contains(strings.Join(pluginsCheck, " "), plg.Slug) {

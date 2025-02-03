@@ -74,6 +74,21 @@ Após a compilação, coloque a lista de dominios que quer verificar em dominios
 ./gowpscanner
 ```
 
+## Configuração
+
+Você pode alterar no arquivo .env extamente oq você deseja processar ou não, assim como a quantidade de threads
+
+```bash
+# Exemplo de .env para Gowpscanner
+
+CONCURRENCY_LIMIT=400 # Limite de threads
+TESTAR_PLUGINS=true 
+TESTAR_TEMAS=true
+TESTAR_SHELLS=true
+TESTAR_ENV=true
+TESTAR_TIMTHUMBS=true
+```
+
 O fluxo da aplicação é o seguinte:
 
 1. **Atualização da base de dados:**  

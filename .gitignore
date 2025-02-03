@@ -1,17 +1,9 @@
 # Binaries
 *.exe
-*.dll
-*.so
-*.dylib
 
 # Compiled binary (exemplo: gowpscanner)
 Gowpscanner
 
-# Output de cobertura
-*.out
-
-# Dependências (vendor, se utilizado)
-vendor/
 
 # Módulos do Go (ignore go.sum, mas mantenha go.mod)
 go.sum
@@ -33,11 +25,11 @@ database/
 .DS_Store
 Thumbs.db
 
-# Diretório de build (se houver)
-build/
+
 
 # Logs e arquivos temporários
 *.log
 *.tmp
 
+# Arquivos de dominios
 dominios.txt
