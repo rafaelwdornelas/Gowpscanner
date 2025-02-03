@@ -57,10 +57,10 @@ func CheckFirebaseIO(content string) {
 		if TestInsecureFirebase(link) {
 			// Salva os links vulneráveis no arquivo firebaseio.txt
 			utils.LogSave("https://"+link, "firebaseio.txt")
-			utils.Warning("Links Firebase vulneráveis encontrados:\n%s", link)
+			utils.Warning("Links Firebase vulneráveis encontrados:%s", link)
 			utils.BeepAlert()
 		} else {
-			utils.Info("Link Firebase encontrado, mas não vulnerável:\n%s", link)
+			utils.Info("Link Firebase encontrado, mas não vulnerável:%s", link)
 		}
 	}
 }

