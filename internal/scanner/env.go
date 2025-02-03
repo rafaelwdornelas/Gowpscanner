@@ -57,6 +57,7 @@ func CheckEnv(baseURL string) {
 			// Se passou nos testes, considera-se um .env válido
 			utils.LogSave(envURL, "env-production.txt")
 			utils.Warning("Arquivo .env válido encontrado em %s", envURL)
+			utils.BeepAlert()
 		}
 	}
 }
