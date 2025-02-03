@@ -68,7 +68,7 @@ go build -o gowpscanner
 
 ## Uso
 
-Após a compilação, basta executar o scanner:
+Após a compilação, coloque a lista de dominios que quer verificar em dominios.txt e é só executar o scanner:
 
 ```bash
 ./gowpscanner
@@ -102,6 +102,7 @@ Os resultados são armazenados na pasta `./retornos`.
   - `backups.go`: Procura arquivos de configuração expostos.
   - `timthumb.go`: Detecta vulnerabilidades relacionadas ao TimThumb.
   - `buscashell.go`: Verifica a presença de shells expostos.
+  - `env.go`: Verifica a presença de arquivos .env expostos.
 
 - **internal/utils:**  
   Funções utilitárias para:
