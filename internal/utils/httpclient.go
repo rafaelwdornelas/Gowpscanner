@@ -1,4 +1,3 @@
-// internal\utils\httpclient.go
 package utils
 
 import (
@@ -11,19 +10,23 @@ import (
 	browser "github.com/EDDYCJY/fake-useragent"
 )
 
-// TestURL faz requisição GET e retorna true se 200..399
-func TestURL(url string) bool {
-	client := &http.Client{
-		Timeout: 10 * time.Second,
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		},
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
-			return http.ErrUseLastResponse
-		},
-	}
+// Global http.Client reutilizável para todas as requisições, com timeout reduzido para acelerar o scan.
+var client = &http.Client{
+	Timeout: 3 * time.Second,
+	Transport: &http.Transport{
+		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+	},
+	// Evita seguir redirecionamentos automaticamente.
+	CheckRedirect: func(req *http.Request, via []*http.Request) error {
+		return http.ErrUseLastResponse
+	},
+}
 
-	req, err := http.NewRequest("GET", url, nil)
+// TestURL faz uma requisição HEAD e retorna true se o status code estiver entre 200 e 399.
+// Se a requisição HEAD falhar (por exemplo, se o servidor não suportar HEAD), tenta GET como fallback.
+func TestURL(url string) bool {
+	// Tenta primeiro com HEAD.
+	req, err := http.NewRequest("HEAD", url, nil)
 	if err != nil {
 		return false
 	}
@@ -31,31 +34,29 @@ func TestURL(url string) bool {
 
 	resp, err := client.Do(req)
 	if err != nil {
-		return false
+		// Fallback: tenta GET se HEAD falhar.
+		req, err = http.NewRequest("GET", url, nil)
+		if err != nil {
+			return false
+		}
+		req.Header.Set("User-Agent", browser.Computer())
+		resp, err = client.Do(req)
+		if err != nil {
+			return false
+		}
 	}
 	defer resp.Body.Close()
-
 	return resp.StatusCode >= 200 && resp.StatusCode < 400
 }
 
-// GetBody retorna o conteúdo de uma URL se o status code for 200
+// GetBody retorna o conteúdo da URL se o status code for 200.
+// Caso o status não seja 200, retorna um erro.
 func GetBody(url string) (string, error) {
-	client := &http.Client{
-		Timeout: 10 * time.Second,
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
-		},
-		CheckRedirect: func(req *http.Request, via []*http.Request) error {
-			return http.ErrUseLastResponse
-		},
-	}
-
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return "", err
 	}
 	req.Header.Set("User-Agent", browser.Computer())
-
 	resp, err := client.Do(req)
 	if err != nil {
 		return "", err
