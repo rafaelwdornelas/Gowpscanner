@@ -52,25 +52,17 @@ func CheckFirebaseIO(content string) {
 	}
 
 	// Itera sobre cada link encontrado e testa a vulnerabilidade
-	var vulnerableLinks []string
+
 	for link := range matchesMap {
 		if TestInsecureFirebase(link) {
-			vulnerableLinks = append(vulnerableLinks, link)
+			// Salva os links vulneráveis no arquivo firebaseio.txt
+			utils.LogSave("https://"+link, "firebaseio.txt")
+			utils.Warning("Links Firebase vulneráveis encontrados:\n%s", link)
+			utils.BeepAlert()
+		} else {
+			utils.Info("Link Firebase encontrado, mas não vulnerável:\n%s", link)
 		}
 	}
-
-	// Se nenhum link for vulnerável, não faz nada.
-	if len(vulnerableLinks) == 0 {
-		return
-	}
-
-	// Junta os links vulneráveis em uma única string separada por quebras de linha
-	resultStr := strings.Join(vulnerableLinks, "\n")
-
-	// Salva os links vulneráveis no arquivo firebaseio.txt
-	utils.LogSave(resultStr, "firebaseio.txt")
-	utils.Warning("Links Firebase vulneráveis encontrados:\n%s", resultStr)
-	utils.BeepAlert()
 }
 
 // TestInsecureFirebase testa se o host Firebase (por exemplo, "example.firebaseio.com")
