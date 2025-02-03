@@ -66,14 +66,6 @@ go build -o gowpscanner
 
 ---
 
-## Uso
-
-Após a compilação, coloque a lista de dominios que quer verificar em dominios.txt e é só executar o scanner:
-
-```bash
-./gowpscanner
-```
-
 ## Configuração
 
 Você pode alterar no arquivo .env extamente oq você deseja processar ou não, assim como a quantidade de threads
@@ -87,6 +79,16 @@ TESTAR_TEMAS=true
 TESTAR_SHELLS=true
 TESTAR_ENV=true
 TESTAR_TIMTHUMBS=true
+```
+
+---
+
+## Uso
+
+Após a compilação, coloque a lista de dominios que quer verificar em dominios.txt e é só executar o scanner:
+
+```bash
+./gowpscanner
 ```
 
 O fluxo da aplicação é o seguinte:
