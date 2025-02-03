@@ -1,3 +1,4 @@
+// internal\wpdetect\detect.go
 package wpdetect
 
 import (
