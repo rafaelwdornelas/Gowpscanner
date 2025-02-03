@@ -51,5 +51,48 @@ func CheckYaml(baseURL string) {
 			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
 			utils.BeepAlert()
 		}
+		//circleci-config
+		if strings.Contains(lowerContent, "jobs:") && strings.Contains(lowerContent, "version:") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+		//Detect Drone Configuration
+		if strings.Contains(lowerContent, "kind:") && strings.Contains(lowerContent, "name:") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+		//Rails Secret Token
+		if strings.Contains(lowerContent, "secret_key_base") || strings.Contains(lowerContent, "config.secret_token") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+		//Openstack User Secrets
+		if strings.Contains(lowerContent, "#NOTE: Please uncomment those") || strings.Contains(lowerContent, "may break your OpenStack environment") || strings.Contains(lowerContent, "OS_AUTH_URL") || strings.Contains(lowerContent, "OS_USERNAME") || strings.Contains(lowerContent, "OS_TENANT_NAME") || strings.Contains(lowerContent, "OS_REGION_NAME") || strings.Contains(lowerContent, "OS_PROJECT_NAME") || strings.Contains(lowerContent, "OS_IDENTITY_API_VERSION") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+		//Detect Redmine Database Configuration
+		if strings.Contains(lowerContent, "production:") || strings.Contains(lowerContent, "adapter:") || strings.Contains(lowerContent, "database:") || strings.Contains(lowerContent, "username:") || strings.Contains(lowerContent, "password:") || strings.Contains(lowerContent, "host:") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+		//Akkadian Provisioning Manager MariaDB Credentials
+		if strings.Contains(lowerContent, "host:") || strings.Contains(lowerContent, "name:") || strings.Contains(lowerContent, "pass:") {
+			// Se passou nos testes, considera-se um arquivo YAML com dados sensíveis.
+			utils.LogSave(yamlURL, "yaml-production.txt")
+			utils.Warning("Arquivo YAML sensível encontrado em %s", yamlURL)
+			utils.BeepAlert()
+		}
+
 	}
 }

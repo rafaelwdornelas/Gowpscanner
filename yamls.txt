@@ -5,6 +5,9 @@
 /api/config.yaml
 /api/config.yml
 /app/config/parameters.yml
+/config/secrets.yml
+/user_secrets.yml
+/user_secrets.yml.old
 /.appveyor.yml
 /.azure-pipelines.yml
 /.binstar.yml
@@ -94,6 +97,7 @@
 /.wp-cli/config.yml
 /.zuul.yaml
 /.zuul.yml
+/pme/database/pme/phinx.yml
 /Homestead.yaml
 /META.yml
 /WEB-INF/classes/application.yml
