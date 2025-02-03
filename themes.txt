@@ -8,6 +8,7 @@ bolster|all|Multiple themes - Unauthenticated Arbitrary File Upload
 bootstrap-ultimate|<= 1.4.9|Bootstrap Ultimate <= 1.4.9 - Unauthenticated Limited Local File Inclusion
 bricks|<= 1.9.6|Bricks <= 1.9.6 - Unauthenticated Remote Code Execution
 cas|<= 1.0.0|CAS <= 1.0.0 - Unauthenticated Arbitrary File Access
+churchope|all|/wp-content/themes/churchope/lib/downloadlink.php?file=../../../../wp-config.php
 clean-retina|< 3.0.7|Clean Retina < 3.0.7 - Unauthenticated Local File Inclusion
 clockstone|<= 1.2|Clockstone <= 1.2 - Arbitrary File Upload
 dailydeal|all|DailyDeal - File Upload Remote Code Execution
@@ -30,6 +31,7 @@ method|all|WordPress Slider Revolution - Local File Disclosure
 minus|< 2.0.0|All Thrive Themes Legacy Themes < 2.0.0 - Unauthenticated Arbitrary File Upload and Option Deletion
 motor|< 3.1.0|Motor theme < 3.1.0 - Unauthenticated Local File Inclusion
 mTheme-Unus|all|mTheme-Unus Theme - Local File Inclusion (LFI)
+NativeChurch|all|/wp-content/themes/NativeChurch/download/download.php?file=../../../../wp-config.php
 neosense|< 1.8|Neosense Theme < 1.8 - Unrestricted File Upload
 newscard|< 1.4|NewsCard < 1.4 - Unauthenticated Local File Inclusion
 noo-jobmonster|< 4.7.5|Jobmonster < 4.7.5 - Unauthenticated Arbitrary File Deletion
