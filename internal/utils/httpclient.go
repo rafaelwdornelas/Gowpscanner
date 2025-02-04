@@ -2,6 +2,7 @@ package utils
 
 import (
 	"crypto/tls"
+	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -67,6 +68,10 @@ func GetBody(url string) (string, error) {
 		return "", err
 	}
 	defer resp.Body.Close()
+
+	if resp.StatusCode != 200 {
+		return "", fmt.Errorf("status code %d", resp.StatusCode)
+	}
 
 	data, err := io.ReadAll(resp.Body)
 	if err != nil {

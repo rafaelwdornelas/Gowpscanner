@@ -37,16 +37,22 @@ func CheckShell(baseURL string) {
 			utils.LogSave(urlConfig, "shellmails.txt")
 			utils.BeepAlert()
 			utils.Warning("Shell %s encontrada em %s", shellpath, baseURL)
+			//sai do loop
+			break
 		} else if containsUpload && containsForm {
 			utils.Warning("Encontrado Upload ou Form: %s", urlConfig)
 			utils.LogSave(urlConfig, "shellupload.txt")
 			utils.BeepAlert()
 			utils.Warning("Shell %s encontrada em %s", shellpath, baseURL)
+			//sai do loop
+			break
 		} else if buscatmp != "" && containsOutros {
 			utils.Warning("Encontrado Outros: %s", urlConfig)
 			utils.LogSave(urlConfig, "shellupload.txt")
 			utils.BeepAlert()
 			utils.Warning("Shell %s encontrada em %s", shellpath, baseURL)
+			//sai do loop
+			break
 		}
 	}
 }
