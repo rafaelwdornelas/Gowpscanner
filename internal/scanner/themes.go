@@ -26,7 +26,6 @@ func CheckThemes(baseURL, dominio string) {
 			for _, themeInfo := range themesList {
 				if themeInfo.Slug == slug {
 					if themeInfo.Description == "Timthumb" {
-						utils.LogSave(fmt.Sprintf("%s/wp-content/themes/%s/style.css | version:%s", baseURL, slug, version), "TemasTimthumb.txt")
 						if processarTimThumbThemes(baseURL, slug) {
 							encontrouFalha = true
 						}
@@ -80,7 +79,6 @@ func extrairVersaoThemes(baseURL, themeSlug string) string {
 	if chg != "" {
 		return chg
 	}
-	utils.LogSave(urlStyle, "erros.txt")
 	return ""
 }
 
