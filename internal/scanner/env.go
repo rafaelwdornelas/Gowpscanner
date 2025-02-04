@@ -21,7 +21,7 @@ func CheckEnv(baseURL string) {
 		contador++
 		//caso o contador seja multiplo de 100, exibe mensagem
 		if contador%100 == 0 {
-			utils.Info("Verificando Env %s -  %d/%d", baseURL, contador, len(shellList))
+			utils.Info("Verificando Env %s -  %d/%d", baseURL, contador, len(envList))
 		}
 
 		envURL := fmt.Sprintf("%s%s", baseURL, p)

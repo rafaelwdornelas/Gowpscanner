@@ -18,7 +18,7 @@ func CheckThemes(baseURL, dominio string) {
 		contador++
 		//caso o contador seja multiplo de 100, exibe mensagem
 		if contador%100 == 0 {
-			utils.Info("Verificando Themes %s -  %d/%d", baseURL, contador, len(shellList))
+			utils.Info("Verificando Themes %s -  %d/%d", baseURL, contador, len(themesCheck))
 		}
 		version := extrairVersaoThemes(baseURL, slug)
 		if version != "" {

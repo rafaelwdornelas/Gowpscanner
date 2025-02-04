@@ -32,7 +32,7 @@ func CheckPlugins(baseURL, dominio string) {
 		contador++
 		//caso o contador seja multiplo de 100, exibe mensagem
 		if contador%100 == 0 {
-			utils.Info("Verificando Plugins %s -  %d/%d", baseURL, contador, len(shellList))
+			utils.Info("Verificando Plugins %s -  %d/%d", baseURL, contador, len(pluginsCheck))
 		}
 		version, urlReadme := extrairVersaoPlugins(baseURL, slug)
 		if version != "" {

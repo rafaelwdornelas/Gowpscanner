@@ -20,7 +20,7 @@ func CheckYaml(baseURL string) {
 		contador++
 		//caso o contador seja multiplo de 100, exibe mensagem
 		if contador%100 == 0 {
-			utils.Info("Verificando Yaml %s -  %d/%d", baseURL, contador, len(shellList))
+			utils.Info("Verificando Yaml %s -  %d/%d", baseURL, contador, len(yamlList))
 		}
 		yamlURL := fmt.Sprintf("%s%s", baseURL, p)
 
