@@ -14,10 +14,16 @@ var envList []string
 // CheckEnv verifica se o domínio possui um arquivo .env válido em diferentes caminhos
 // e salva a URL do .env válido no arquivo env-production.txt.
 func CheckEnv(baseURL string) {
-	// Lista de caminhos a serem verificados
+	var contador int = 0
 
 	// Itera sobre cada caminho e faz a verificação
 	for _, p := range envList {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Env %s -  %d/%d", baseURL, contador, len(shellList))
+		}
+
 		envURL := fmt.Sprintf("%s%s", baseURL, p)
 
 		// Tenta obter o conteúdo usando GetBody (que já retorna erro se o status não for 200)

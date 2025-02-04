@@ -15,7 +15,13 @@ var dbExportsList []string
 
 // CheckConfigBackups verifica se existem arquivos de configuração expostos
 func CheckConfigBackups(baseURL string) {
+	var contador int = 0
 	for _, config := range configList {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Backups %s -  %d/%d", baseURL, contador, len(shellList))
+		}
 		urlConfig := fmt.Sprintf("%s/%s", baseURL, config)
 		conteudo, err := utils.GetBody(urlConfig)
 		if err != nil {

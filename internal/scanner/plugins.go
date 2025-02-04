@@ -27,7 +27,13 @@ var (
 
 // CheckPlugins faz a varredura de plugins vulneráveis
 func CheckPlugins(baseURL, dominio string) {
+	var contador int
 	for _, slug := range pluginsCheck {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Plugins %s -  %d/%d", baseURL, contador, len(shellList))
+		}
 		version, urlReadme := extrairVersaoPlugins(baseURL, slug)
 		if version != "" {
 			var encontrouFalha bool

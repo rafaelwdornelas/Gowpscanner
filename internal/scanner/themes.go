@@ -13,7 +13,13 @@ var themesCheck []string
 
 // CheckThemes faz a varredura de temas vulneráveis
 func CheckThemes(baseURL, dominio string) {
+	var contador int
 	for _, slug := range themesCheck {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Themes %s -  %d/%d", baseURL, contador, len(shellList))
+		}
 		version := extrairVersaoThemes(baseURL, slug)
 		if version != "" {
 			var encontrouFalha bool

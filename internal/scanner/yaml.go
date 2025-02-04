@@ -14,8 +14,14 @@ var yamlList []string
 // CheckYaml verifica se o domínio possui um arquivo YAML/YML com informações sensíveis.
 // Se for encontrado, registra a URL e as vulnerabilidades detectadas no arquivo yaml-production.txt.
 func CheckYaml(baseURL string) {
+	var contador int = 0
 	// Itera sobre cada caminho definido em yamlList.
 	for _, p := range yamlList {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Yaml %s -  %d/%d", baseURL, contador, len(shellList))
+		}
 		yamlURL := fmt.Sprintf("%s%s", baseURL, p)
 
 		// Tenta obter o conteúdo usando GetBody.
