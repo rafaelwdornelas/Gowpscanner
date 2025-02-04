@@ -73,12 +73,13 @@ Você pode alterar no arquivo .env extamente oq você deseja processar ou não, 
 ```bash
 # Exemplo de .env para Gowpscanner
 
-CONCURRENCY_LIMIT=400 # Limite de threads
+CONCURRENCY_LIMIT=200 # Limite de threads
 TESTAR_PLUGINS=true 
 TESTAR_TEMAS=true
 TESTAR_SHELLS=true
 TESTAR_ENV=true
 TESTAR_TIMTHUMBS=true
+TESTAR_YAML=true
 ```
 
 ---
