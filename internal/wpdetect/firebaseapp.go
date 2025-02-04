@@ -54,8 +54,6 @@ func CheckFirebaseIO(content string) {
 			utils.Warning("Link Firebase com leitura aberta encontrado: %s", link)
 			utils.BeepAlert()
 		} else {
-			// Salva os links vulneráveis no arquivo firebaseio.txt
-			utils.LogSave("https://"+link+"/.json - Não Vunerável", "firebaseio.txt")
 			utils.Info("Link Firebase encontrado, mas não vulnerável:%s", link)
 		}
 	}
