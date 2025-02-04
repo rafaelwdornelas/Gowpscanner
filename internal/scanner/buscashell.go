@@ -13,7 +13,13 @@ var shellList []string
 
 // CheckShell verifica se existem arquivos shell expostos
 func CheckShell(baseURL string) {
+	var contador int = 0
 	for _, shellpath := range shellList {
+		contador++
+		//caso o contador seja multiplo de 100, exibe mensagem
+		if contador%100 == 0 {
+			utils.Info("Verificando Shell %s -  %d/%d", baseURL, contador, len(shellList))
+		}
 		var buscatmp string
 		if strings.Contains(shellpath, "|") {
 			parts := strings.Split(shellpath, "|")
