@@ -78,29 +78,21 @@ func CheckYaml(baseURL string) {
 		if strings.Contains(lowerContent, "kind:") && strings.Contains(lowerContent, "name:") {
 			vulnerabilities = append(vulnerabilities, "Drone Config")
 		}
-		if strings.Contains(lowerContent, "secret_key_base") || strings.Contains(lowerContent, "config.secret_token") {
+		if strings.Contains(lowerContent, "secret_key_base") && strings.Contains(lowerContent, "config.secret_token") {
 			vulnerabilities = append(vulnerabilities, "Rails Secret")
 		}
-		if strings.Contains(lowerContent, "#note: please uncomment those") ||
-			strings.Contains(lowerContent, "may break your openstack environment") ||
-			strings.Contains(lowerContent, "os_auth_url") ||
-			strings.Contains(lowerContent, "os_username") ||
-			strings.Contains(lowerContent, "os_tenant_name") ||
-			strings.Contains(lowerContent, "os_region_name") ||
-			strings.Contains(lowerContent, "os_project_name") ||
-			strings.Contains(lowerContent, "os_identity_api_version") {
+		if strings.Contains(lowerContent, "#note: please uncomment those") &&
+			strings.Contains(lowerContent, "may break your openstack environment") {
 			vulnerabilities = append(vulnerabilities, "OpenStack Secrets")
 		}
-		if strings.Contains(lowerContent, "production:") ||
-			strings.Contains(lowerContent, "adapter:") ||
-			strings.Contains(lowerContent, "database:") ||
-			strings.Contains(lowerContent, "username:") ||
-			strings.Contains(lowerContent, "password:") ||
-			strings.Contains(lowerContent, "host:") {
+		if strings.Contains(lowerContent, "adapter:") &&
+			strings.Contains(lowerContent, "database:") &&
+			strings.Contains(lowerContent, "host:") &&
+			strings.Contains(lowerContent, "production:") {
 			vulnerabilities = append(vulnerabilities, "Redmine DB Config")
 		}
-		if strings.Contains(lowerContent, "host:") ||
-			strings.Contains(lowerContent, "name:") ||
+		if strings.Contains(lowerContent, "host:") &&
+			strings.Contains(lowerContent, "name:") &&
 			strings.Contains(lowerContent, "pass:") {
 			vulnerabilities = append(vulnerabilities, "MariaDB Credentials")
 		}
