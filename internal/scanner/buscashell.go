@@ -28,8 +28,8 @@ func CheckShell(baseURL string) {
 
 		containsLeaf := strings.Contains(strings.ToLower(conteudo), "leafmailer")
 		containsPHPMailer := strings.Contains(strings.ToLower(conteudo), "phpmailer")
-		containsUpload := strings.Contains(strings.ToLower(conteudo), "type=\"file\"")
-		containsForm := strings.Contains(strings.ToLower(conteudo), "type=\"submit\"")
+		containsUpload := strings.Contains(strings.ToLower(conteudo), " type=\"file\"")
+		containsForm := strings.Contains(strings.ToLower(conteudo), " type=\"submit\"")
 		containsOutros := strings.Contains(strings.ToLower(conteudo), strings.ToLower(buscatmp))
 
 		if containsLeaf || containsPHPMailer {
