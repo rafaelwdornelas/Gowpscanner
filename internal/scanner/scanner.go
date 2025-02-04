@@ -226,7 +226,7 @@ func Run(domainsFile string) error {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		domain := scanner.Text()
-		if domain == "" {
+		if domain == "" || !strings.Contains(domain, ".") {
 			continue
 		}
 
