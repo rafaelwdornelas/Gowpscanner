@@ -56,10 +56,16 @@ func CheckFirebaseIO(content string) {
 	for link := range matchesMap {
 		if TestInsecureFirebase(link) {
 			// Salva os links vulneráveis no arquivo firebaseio.txt
-			utils.LogSave("https://"+link, "firebaseio.txt")
+			utils.LogSave("https://"+link+" - InsecureFirebase", "firebaseio.txt")
 			utils.Warning("Links Firebase vulneráveis encontrados:%s", link)
 			utils.BeepAlert()
+		} else if TestFirebaseOpenRead(link) {
+			utils.LogSave("https://"+link+" - OpenRead", "firebaseio.txt")
+			utils.Warning("Link Firebase com leitura aberta encontrado: %s", link)
+			utils.BeepAlert()
 		} else {
+			// Salva os links vulneráveis no arquivo firebaseio.txt
+			utils.LogSave("https://"+link+" - Não Vunerável", "firebaseio.txt")
 			utils.Info("Link Firebase encontrado, mas não vulnerável:%s", link)
 		}
 	}
@@ -157,4 +163,39 @@ func RandString(n int) string {
 		b[i] = letters[rand.Intn(len(letters))]
 	}
 	return string(b)
+}
+
+// TestFirebaseOpenRead testa se o host Firebase possui leitura aberta
+// ao acessar "https://{host}/.json". Retorna true se o status code for 200.
+func TestFirebaseOpenRead(host string) bool {
+	// Constrói a URL de teste.
+	testURL := "https://" + host + "/.json"
+
+	// Cria um client HTTP com timeout e configuração para ignorar verificação TLS.
+	client := &http.Client{
+		Timeout: 5 * time.Second,
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		},
+		CheckRedirect: func(req *http.Request, via []*http.Request) error {
+			return http.ErrUseLastResponse
+		},
+	}
+
+	// Prepara a requisição GET.
+	req, err := http.NewRequest("GET", testURL, nil)
+	if err != nil {
+		return false
+	}
+	req.Header.Set("User-Agent", browser.Computer())
+
+	// Executa a requisição.
+	resp, err := client.Do(req)
+	if err != nil {
+		return false
+	}
+	defer resp.Body.Close()
+
+	// Retorna true se o status code for 200, indicando acesso aberto.
+	return resp.StatusCode == 200
 }
