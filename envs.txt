@@ -9,7 +9,6 @@
 /.env.dev.local
 /.env.development.local
 /.env.docker.dev
-/.env.example
 /.env.live
 /.env.local
 /.env.php
