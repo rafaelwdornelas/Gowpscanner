@@ -17,9 +17,8 @@ import (
 
 // CheckFirebaseIO procura por links Firebase na string de entrada, testa cada um e salva os que estão vulneráveis em firebaseio.txt.
 func CheckFirebaseIO(content string) {
-	// Expressões regulares para capturar links com firebaseio.com e firebaseapp.com (case-insensitive)
+	// Expressões regulares para capturar links com firebaseio.com
 	patternFirebaseio := `(?i)[a-z0-9.-]+\.firebaseio\.com`
-	patternFirebaseapp := `(?i)[a-z0-9.-]+\.firebaseapp\.com`
 
 	// Compilando as regexes
 	reFirebaseio, err := regexp.Compile(patternFirebaseio)
@@ -27,22 +26,13 @@ func CheckFirebaseIO(content string) {
 		fmt.Printf("Erro compilando regex firebaseio: %v\n", err)
 		return
 	}
-	reFirebaseapp, err := regexp.Compile(patternFirebaseapp)
-	if err != nil {
-		fmt.Printf("Erro compilando regex firebaseapp: %v\n", err)
-		return
-	}
 
 	// Encontrando todos os matches na string de entrada
 	matchesFirebaseio := reFirebaseio.FindAllString(content, -1)
-	matchesFirebaseapp := reFirebaseapp.FindAllString(content, -1)
 
 	// Usando um mapa para remover duplicatas
 	matchesMap := make(map[string]bool)
 	for _, match := range matchesFirebaseio {
-		matchesMap[match] = true
-	}
-	for _, match := range matchesFirebaseapp {
 		matchesMap[match] = true
 	}
 
