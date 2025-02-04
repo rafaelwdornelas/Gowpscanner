@@ -56,16 +56,16 @@ func CheckFirebaseIO(content string) {
 	for link := range matchesMap {
 		if TestInsecureFirebase(link) {
 			// Salva os links vulneráveis no arquivo firebaseio.txt
-			utils.LogSave("https://"+link+" - InsecureFirebase", "firebaseio.txt")
+			utils.LogSave("https://"+link+"/.json - InsecureFirebase", "firebaseio.txt")
 			utils.Warning("Links Firebase vulneráveis encontrados:%s", link)
 			utils.BeepAlert()
 		} else if TestFirebaseOpenRead(link) {
-			utils.LogSave("https://"+link+" - OpenRead", "firebaseio.txt")
+			utils.LogSave("https://"+link+"/.json - OpenRead", "firebaseio.txt")
 			utils.Warning("Link Firebase com leitura aberta encontrado: %s", link)
 			utils.BeepAlert()
 		} else {
 			// Salva os links vulneráveis no arquivo firebaseio.txt
-			utils.LogSave("https://"+link+" - Não Vunerável", "firebaseio.txt")
+			utils.LogSave("https://"+link+"/.json - Não Vunerável", "firebaseio.txt")
 			utils.Info("Link Firebase encontrado, mas não vulnerável:%s", link)
 		}
 	}
