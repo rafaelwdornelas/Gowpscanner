@@ -167,7 +167,7 @@ Caso a entrada para o plugin não seja encontrada ou o campo não esteja definid
   As cores e estilos de saída podem ser customizados no pacote de utils responsável pelo output.
 
 - **Atualização dos Dados:**  
-  Os arquivos em `./database` (como `plugins.txt`, `themes.txt` etc.) podem ser editados para atualizar as vulnerabilidades conhecidas.
+  Os arquivos em  `plugins.txt`, `themes.txt`, `shells.txt`, `yamls.txt` e `envs.txt`, podem ser editados para atualizar as vulnerabilidades conhecidas.
 
 ---
 
