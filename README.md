@@ -131,6 +131,7 @@ Os resultados são armazenados na pasta `./retornos`.
   - Extração e comparação de versões.
   - Output formatado (mensagens coloridas no terminal).
   - Leitura dinâmica do arquivo YAML (`dynamic_finders.yml`).
+  - Cria um servidor web para mostrar em tempo real a performace do projeto: http://localhost:6060/
 
 - **pkg/update:**  
   Responsável por atualizar ou verificar a base de dados de vulnerabilidades.
