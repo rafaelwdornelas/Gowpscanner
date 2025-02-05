@@ -85,20 +85,20 @@ func init() {
 	dbExportsList = utils.CarregarListas("database/db_exports.txt")
 	timthumbPaths = utils.CarregarListas("database/timthumbs-v3.txt")
 	if testarShells {
-		shellList = utils.CarregarListas("shells.txt")
+		shellList = utils.CarregarListas("paths/shells.txt")
 	}
 	if testarYaml {
-		yamlList = utils.CarregarListas("yamls.txt")
+		yamlList = utils.CarregarListas("paths/yamls.txt")
 	}
 
 	if testarEnv {
-		envList = utils.CarregarListas("envs.txt")
+		envList = utils.CarregarListas("paths/envs.txt")
 	}
 	dynamicFindersMap = utils.LoadDynamicFinders()
 
 	if testarPlugins {
 		// Carrega plugins
-		pList := utils.CarregarPluginsVulneraveis("plugins.txt")
+		pList := utils.CarregarPluginsVulneraveis("paths/plugins.txt")
 		for _, p := range pList {
 			pluginList = append(pluginList, PluginVulneravel{
 				Slug: p.Slug, Comparator: p.Comparator, Version: p.Version, Description: p.Description,
@@ -108,7 +108,7 @@ func init() {
 
 	if testarTemas {
 		// Carrega themes
-		tList := utils.CarregarPluginsVulneraveis("themes.txt")
+		tList := utils.CarregarPluginsVulneraveis("paths/themes.txt")
 		for _, t := range tList {
 			themesList = append(themesList, PluginVulneravel{
 				Slug: t.Slug, Comparator: t.Comparator, Version: t.Version, Description: t.Description,
