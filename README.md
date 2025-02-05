@@ -114,13 +114,13 @@ Os resultados são armazenados na pasta `./retornos`.
 
 - **internal/scanner:**  
   Contém a lógica principal do scanner:
+  - `backups.go`: Procura arquivos de configuração expostos.
+  - `buscashell.go`: Verifica a presença de shells expostos.
   - `domain.go`: Verifica HTTP/HTTPS, detecta WordPress e inicia as verificações.
+  - `env.go`: Verifica a presença de arquivos .env expostos.
   - `plugins.go`: Realiza a checagem de plugins vulneráveis.
   - `themes.go`: Checa vulnerabilidades em temas.
-  - `backups.go`: Procura arquivos de configuração expostos.
   - `timthumb.go`: Detecta vulnerabilidades relacionadas ao TimThumb.
-  - `buscashell.go`: Verifica a presença de shells expostos.
-  - `env.go`: Verifica a presença de arquivos .env expostos.
   - `yaml.go`: Verifica a presença de arquivos .yaml e .yml expostos.
 
 
