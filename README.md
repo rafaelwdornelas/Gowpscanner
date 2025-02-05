@@ -121,6 +121,8 @@ Os resultados são armazenados na pasta `./retornos`.
   - `timthumb.go`: Detecta vulnerabilidades relacionadas ao TimThumb.
   - `buscashell.go`: Verifica a presença de shells expostos.
   - `env.go`: Verifica a presença de arquivos .env expostos.
+  - `yaml.go`: Verifica a presença de arquivos .yaml e .yml expostos.
+
 
 - **internal/utils:**  
   Funções utilitárias para:
@@ -135,6 +137,11 @@ Os resultados são armazenados na pasta `./retornos`.
 
 - **database:**  
   Diretório contendo os arquivos de dados e configurações (por exemplo, o arquivo YAML dinâmico).
+
+- **internal\wpdetect:**  
+  Funções utilitárias para:
+  - Detectar qual o path dominio correto.
+  - Lotalizar banco de dados firebase abertos para leitura e escrita.
 
 ---
 
@@ -154,9 +161,6 @@ Caso a entrada para o plugin não seja encontrada ou o campo não esteja definid
 ---
 
 ## Customização
-
-- **Limite de Concorrência:**  
-  O número de goroutines simultâneas pode ser ajustado modificando a constante `concurrencyLimit` em `internal/scanner/scanner.go`.
 
 - **Output Formatado:**  
   As cores e estilos de saída podem ser customizados no pacote de utils responsável pelo output.
