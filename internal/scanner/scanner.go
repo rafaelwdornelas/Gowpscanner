@@ -42,7 +42,7 @@ const (
 
 func init() {
 	// Inicializa o pprof
-	utils.InitPprof()
+	utils.InitPrometheusDashboard()
 	// 1) Atualiza a base de dados (ou verifica se está atualizada)
 	update.BaixaDatabase()
 
