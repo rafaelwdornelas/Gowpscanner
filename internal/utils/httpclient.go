@@ -20,7 +20,11 @@ func init() {
 var client = &http.Client{
 	Timeout: 5 * time.Second,
 	Transport: &http.Transport{
-		TLSClientConfig: &tls.Config{InsecureSkipVerify: true},
+		TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+		DisableKeepAlives:   true, // Desabilita a reutilização de conexões
+		MaxIdleConns:        100,  // Limita o número total de conexões inativas
+		MaxIdleConnsPerHost: 10,   // Limita o número de conexões inativas por host
+		MaxConnsPerHost:     100,  // Limita o número total de conexões por host
 	},
 	// Evita seguir redirecionamentos automaticamente.
 	CheckRedirect: func(req *http.Request, via []*http.Request) error {

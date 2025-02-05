@@ -41,6 +41,8 @@ const (
 )
 
 func init() {
+	// Inicializa o pprof
+	utils.InitPprof()
 	// 1) Atualiza a base de dados (ou verifica se está atualizada)
 	update.BaixaDatabase()
 
