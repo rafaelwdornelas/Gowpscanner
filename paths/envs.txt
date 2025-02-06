@@ -219,9 +219,6 @@
 /frontendfinaltest/.env
 /ftp/.env
 /ftpmaster/.env
-/gists/cache
-/gists/laravel
-/gists/pusher
 /github-connect/.env
 /grems-api/.env
 /grems-frontend/.env
