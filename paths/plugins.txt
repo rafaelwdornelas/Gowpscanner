@@ -323,7 +323,6 @@ seo-beginner-auto-post|<= 2.2.1|SEO LAT Auto Post <= 2.2.1 - Missing Authorizati
 seo-local-rank|< 2.2.4|CVE-2021-39312
 sermon-browser|<= 0.45.22|Sermon Browser <= 0.45.22 - Arbitrary File Upload via CSRF
 sfwd-lms|< 2.5.4|LearnDash < 2.5.4 - Unauthenticated Arbitrary File Upload
-sg-cachepress|<= 5.0.12|SG Optimizer <= 5.0.12 - Unauthenticated File Upload
 shariff|< 4.6.14|Shariff Wrapper < 4.6.14 - Unauthenticated Local File Inclusion
 shopp|<= 1.4|Shopp eCommerce <= 1.4 - Unauthenticated Arbitrary File Upload
 shortcode-factory|< 2.8|Shortcode Factory < 2.8 - Local File Inclusion
