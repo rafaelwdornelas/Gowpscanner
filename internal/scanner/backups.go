@@ -47,13 +47,13 @@ func CheckConfigBackups(baseURL string) {
 			var configOutput string
 			configOutput += fmt.Sprintf("URL: %s\n", urlConfig)
 			for campo, valor := range configValues {
-				linha := fmt.Sprintf("  %s: %s\n", campo, valor)
+				linha := fmt.Sprintf("  %s: %s", campo, valor)
 				utils.Info(linha)
 				configOutput += linha
 			}
 
 			// Verifica se DB_HOST possui valor "localhost" ou "127.0.0.1"
-			if host, ok := configValues["DB_HOST"]; ok && (host == "localhost" || host == "127.0.0.1") {
+			if host, ok := configValues["DB_HOST"]; ok && (host == "localhost" || host == "localhost:3306" || host == "127.0.0.1" || host == "127.0.0.1:3306" || host == "127.0.0.1:8889") {
 				// Não salva se o DB_HOST for local
 				utils.Info("DB_HOST é %s, dados não serão salvos em mysqlconfigs.txt", host)
 			} else {
