@@ -92,6 +92,11 @@ func extrairVersaoPlugins(baseURL, pluginSlug string) (string, string) {
 		return "", urlReadme
 	}
 
+	//proteção contra sites que retornam plugins falsos
+	if strings.Contains(conteudo, "Fake Readme") {
+		return "", urlReadme
+	}
+
 	// Tenta pegar via "Stable tag" ou "Version"
 	stable := utils.FromStableTagOrVersion(conteudo)
 	if stable != "" {
