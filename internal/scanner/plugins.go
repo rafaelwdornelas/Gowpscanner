@@ -28,6 +28,12 @@ var (
 // CheckPlugins faz a varredura de plugins vulneráveis
 func CheckPlugins(baseURL, dominio string) {
 	var contador int
+	//proteção contra sites que retornam plugins falsos
+	version, _ := extrairVersaoPlugins(baseURL, "plugin-nao-existe")
+	if version != "" {
+		utils.Warning("Plugin inexistente encontrado em %s", dominio)
+		return
+	}
 	for _, slug := range pluginsCheck {
 		contador++
 		//caso o contador seja multiplo de 100, exibe mensagem
