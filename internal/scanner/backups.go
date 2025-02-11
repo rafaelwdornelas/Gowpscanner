@@ -45,7 +45,7 @@ func CheckConfigBackups(baseURL string) {
 
 			// Monta a string com os valores extraídos
 			var configOutput string
-			configOutput += fmt.Sprintf("URL: %s\n", urlConfig)
+			configOutput += fmt.Sprintf("URL: %s", urlConfig)
 			for campo, valor := range configValues {
 				linha := fmt.Sprintf("  %s: %s", campo, valor)
 				utils.Info(linha)
