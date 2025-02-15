@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"Gowpscanner/internal/utils"
+	"Gowpscanner/internal/wpdetect"
 )
 
 // envList (carregadas em init ou por outro método)
@@ -41,6 +42,9 @@ func CheckEnv(baseURL string) {
 			// Se encontrar HTML, ignora esse caminho
 			continue
 		}
+
+		wpdetect.CheckFirebaseIO(content)
+		wpdetect.CheckDigitalOceanToken(content)
 
 		// Verifica se o conteúdo contém algumas chaves típicas de um arquivo .env
 		if strings.Contains(lowerContent, "app_name=") ||

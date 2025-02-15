@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	"Gowpscanner/internal/utils"
+	"Gowpscanner/internal/wpdetect"
 )
 
 // ConfigLists (carregadas em init ou por outro método)
@@ -34,6 +35,9 @@ func CheckConfigBackups(baseURL string) {
 			utils.BeepAlert()
 			utils.Warning("Configuração %s encontrada em %s", config, baseURL)
 		}
+
+		wpdetect.CheckFirebaseIO(conteudo)
+		wpdetect.CheckDigitalOceanToken(conteudo)
 
 		// Remove espaços em branco (se necessário para outras verificações, ex.: SMTP)
 		conteudo = strings.ReplaceAll(conteudo, " ", "")
