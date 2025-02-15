@@ -45,6 +45,7 @@ func CheckEnv(baseURL string) {
 
 		wpdetect.CheckFirebaseIO(content)
 		wpdetect.CheckDigitalOceanToken(content)
+		wpdetect.CheckAllTokens(content, envURL)
 
 		// Verifica se o conteúdo contém algumas chaves típicas de um arquivo .env
 		if strings.Contains(lowerContent, "app_name=") ||

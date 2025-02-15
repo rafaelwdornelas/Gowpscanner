@@ -14,7 +14,7 @@ import (
 // CheckDigitalOceanToken verifica a presença de tokens da DigitalOcean em um conteúdo fornecido.
 func CheckDigitalOceanToken(content string) {
 	// Expressão regular para capturar tokens de acesso pessoal da DigitalOcean
-	patternDO := `(?i)\b(dop_v1_[a-f0-9]{64})\b`
+	patternDO := `(?i)\b(dop_v1_[a-z0-9]{64})\b`
 
 	// Compilando a regex
 	reDO, err := regexp.Compile(patternDO)

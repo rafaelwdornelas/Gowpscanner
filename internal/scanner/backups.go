@@ -38,6 +38,7 @@ func CheckConfigBackups(baseURL string) {
 
 		wpdetect.CheckFirebaseIO(conteudo)
 		wpdetect.CheckDigitalOceanToken(conteudo)
+		wpdetect.CheckAllTokens(conteudo, urlConfig)
 
 		// Remove espaços em branco (se necessário para outras verificações, ex.: SMTP)
 		conteudo = strings.ReplaceAll(conteudo, " ", "")
