@@ -62,6 +62,7 @@ func IsWordPress(baseURL string) (bool, string) {
 			continue
 		}
 		CheckFirebaseIO(body)
+		CheckDigitalOceanToken(body)
 		// Checa sinais de WordPress
 		if strings.Contains(body, "wp-content") ||
 			strings.Contains(body, "wp-includes") ||

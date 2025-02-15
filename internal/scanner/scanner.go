@@ -81,7 +81,8 @@ func init() {
 	}
 
 	// Exemplo:
-	configList = utils.CarregarListas("database/config_backups.txt")
+	//configList = utils.CarregarListas("database/config_backups.txt")
+	configList = utils.CarregarListas("paths/configs.txt")
 	dbExportsList = utils.CarregarListas("database/db_exports.txt")
 	timthumbPaths = utils.CarregarListas("database/timthumbs-v3.txt")
 	if testarShells {
