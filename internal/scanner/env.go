@@ -76,15 +76,19 @@ func CheckEnv(baseURL string) {
 			if len(envValues) > 0 {
 				// Se quiser tratar especificamente a lógica de DB_HOST, por exemplo:
 				if dbhost, ok := envValues["DB_HOST"]; ok {
-					// Caso você queira ignorar hosts locais:
-					if dbhost == "localhost" ||
-						dbhost == "127.0.0.1" ||
-						dbhost == "localhost:3306" ||
-						dbhost == "127.0.0.1:3306" ||
-						dbhost == "127.0.0.1:8889" ||
-						dbhost == "" {
-						utils.Info("DB_HOST é %s, dados não serão salvos em mysqlconfigs.txt", dbhost)
+					//verifica se tem null ou vazio
+					if dbhost == "null" || dbhost == "" {
+						utils.Info("DB_HOST é nulo ou vazio, dados não serão salvos em mysqlconfigs.txt")
 					} else {
+						//extrai somente o host do site
+						tmphostarr := strings.Split(envURL, "/")
+						tmphost := tmphostarr[2]
+						//troca localhost pelo tmphost
+						dbhost = strings.Replace(dbhost, "localhost", tmphost, -1)
+						//troca 127.0.0.1 pelo tmphost
+						dbhost = strings.Replace(dbhost, "127.0.0.1", tmphost, -1)
+						envValues["DB_HOST"] = dbhost
+
 						//vertifica se tem null ou vazio
 						if envValues["DB_USERNAME"] == "null" ||
 							envValues["DB_PASSWORD"] == "null" ||
@@ -100,6 +104,7 @@ func CheckEnv(baseURL string) {
 							utils.Warning(envOutput)
 							utils.BeepAlert()
 						}
+
 					}
 				}
 

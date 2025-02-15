@@ -132,12 +132,12 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`AC[0-9a-fA-F]{32}`),
 	},
-	{
+	/* {
 		ItemTitle:  "Twilio",
 		FieldTitle: "Auth Token",
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`[0-9a-fA-F]{32}`), // Possível confusão com chaves genéricas, mas comum no Twilio
-	},
+	}, */
 	{
 		ItemTitle:  "Twilio",
 		FieldTitle: "Webhook",

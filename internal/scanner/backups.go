@@ -56,9 +56,18 @@ func CheckConfigBackups(baseURL string) {
 				utils.Info(linha)
 				configOutput += linha
 			}
+			//extrai somente o host do site
+			tmphostarr := strings.Split(baseURL, "/")
+			tmphost := tmphostarr[2]
+			dbhost := configValues["DB_HOST"]
+			//troca localhost pelo tmphost
+			dbhost = strings.Replace(dbhost, "localhost", tmphost, -1)
+			//troca 127.0.0.1 pelo tmphost
+			dbhost = strings.Replace(dbhost, "127.0.0.1", tmphost, -1)
+			configValues["DB_HOST"] = dbhost
 
 			// Verifica se DB_HOST possui valor "localhost" ou "127.0.0.1"
-			if host, ok := configValues["DB_HOST"]; ok && (host == "localhost" || host == "localhost:3306" || host == "127.0.0.1" || host == "127.0.0.1:3306" || host == "127.0.0.1:8889") {
+			if host, ok := configValues["DB_HOST"]; ok {
 				// Não salva se o DB_HOST for local
 				utils.Info("DB_HOST é %s, dados não serão salvos em mysqlconfigs.txt", host)
 			} else {
