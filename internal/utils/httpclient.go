@@ -32,6 +32,19 @@ var client = &http.Client{
 	},
 }
 
+// setDefaultHeaders adiciona cabeçalhos para simular um navegador real.
+func setDefaultHeaders(req *http.Request) {
+	req.Header.Set("User-Agent", browser.Computer())
+	req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
+	req.Header.Set("Accept-Language", "en-US,en;q=0.5")
+	req.Header.Set("Connection", "keep-alive")
+	// Define o Referer com base no domínio da URL.
+	if req.URL != nil {
+		referer := fmt.Sprintf("%s://%s/", req.URL.Scheme, req.URL.Host)
+		req.Header.Set("Referer", referer)
+	}
+}
+
 // TestURL faz uma requisição HEAD e retorna true se o status code estiver entre 200 e 399.
 // Se a requisição HEAD falhar (por exemplo, se o servidor não suportar HEAD), tenta GET como fallback.
 func TestURL(url string) bool {
@@ -40,7 +53,7 @@ func TestURL(url string) bool {
 	if err != nil {
 		return false
 	}
-	req.Header.Set("User-Agent", browser.Computer())
+	setDefaultHeaders(req)
 
 	resp, err := client.Do(req)
 	if err != nil {
@@ -49,7 +62,7 @@ func TestURL(url string) bool {
 		if err != nil {
 			return false
 		}
-		req.Header.Set("User-Agent", browser.Computer())
+		setDefaultHeaders(req)
 		resp, err = client.Do(req)
 		if err != nil {
 			return false
@@ -66,7 +79,7 @@ func GetBody(url string) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	req.Header.Set("User-Agent", browser.Computer())
+	setDefaultHeaders(req)
 	resp, err := client.Do(req)
 	if err != nil {
 		return "", err

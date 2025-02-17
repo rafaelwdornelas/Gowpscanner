@@ -48,14 +48,6 @@ func CheckConfigBackups(baseURL string) {
 		if len(configValues) > 0 {
 			utils.Info("Configurações encontradas em %s:", urlConfig)
 
-			// Monta a string com os valores extraídos
-			var configOutput string
-			configOutput += fmt.Sprintf("URL: %s", urlConfig)
-			for campo, valor := range configValues {
-				linha := fmt.Sprintf("  %s: %s", campo, valor)
-				utils.Info(linha)
-				configOutput += linha
-			}
 			//extrai somente o host do site
 			tmphostarr := strings.Split(baseURL, "/")
 			tmphost := tmphostarr[2]
@@ -65,15 +57,15 @@ func CheckConfigBackups(baseURL string) {
 			//troca 127.0.0.1 pelo tmphost
 			dbhost = strings.Replace(dbhost, "127.0.0.1", tmphost, -1)
 			configValues["DB_HOST"] = dbhost
-
-			// Verifica se DB_HOST possui valor "localhost" ou "127.0.0.1"
-			if host, ok := configValues["DB_HOST"]; ok {
-				// Não salva se o DB_HOST for local
-				utils.Info("DB_HOST é %s, dados não serão salvos em mysqlconfigs.txt", host)
-			} else {
-				// Salva os valores encontrados no arquivo mysqlconfigs.txt
-				utils.LogSave(configOutput, "mysqlconfigs.txt")
+			// Monta a string com os valores extraídos
+			var configOutput string
+			configOutput += fmt.Sprintf("URL: %s", urlConfig)
+			for campo, valor := range configValues {
+				linha := fmt.Sprintf("  %s: %s", campo, valor)
+				utils.Info(linha)
+				configOutput += linha
 			}
+			utils.LogSave(configOutput, "mysqlconfigs.txt")
 		}
 	}
 }
