@@ -20,7 +20,21 @@ func init() {
 var client = &http.Client{
 	Timeout: 5 * time.Second,
 	Transport: &http.Transport{
-		TLSClientConfig:     &tls.Config{InsecureSkipVerify: true},
+		// Configuração de TLS aprimorada para simular um navegador real.
+		TLSClientConfig: &tls.Config{
+			InsecureSkipVerify: true, // Usado para ignorar a validação do certificado (use com cautela)
+			MinVersion:         tls.VersionTLS12,
+			MaxVersion:         tls.VersionTLS13,
+			// Lista de cipher suites similar à utilizada por navegadores modernos.
+			CipherSuites: []uint16{
+				tls.TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,
+				tls.TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,
+				tls.TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305,
+				tls.TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305,
+				tls.TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,
+				tls.TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,
+			},
+		},
 		DisableKeepAlives:   true, // Desabilita a reutilização de conexões
 		MaxIdleConns:        100,  // Limita o número total de conexões inativas
 		MaxIdleConnsPerHost: 10,   // Limita o número de conexões inativas por host
@@ -32,7 +46,7 @@ var client = &http.Client{
 	},
 }
 
-// setDefaultHeaders adiciona cabeçalhos para simular um navegador real.
+// setDefaultHeaders adiciona cabeçalhos para simular um navegador real, com Client Hints e outros.
 func setDefaultHeaders(req *http.Request) {
 	req.Header.Set("User-Agent", browser.Computer())
 	req.Header.Set("Accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8")
@@ -43,6 +57,21 @@ func setDefaultHeaders(req *http.Request) {
 		referer := fmt.Sprintf("%s://%s/", req.URL.Scheme, req.URL.Host)
 		req.Header.Set("Referer", referer)
 	}
+	req.Header.Set("Upgrade-Insecure-Requests", "1")
+	req.Header.Set("Cache-Control", "max-age=0")
+	req.Header.Set("Sec-Fetch-Dest", "document")
+	req.Header.Set("Sec-Fetch-Mode", "navigate")
+	req.Header.Set("Sec-Fetch-Site", "none")
+	req.Header.Set("Sec-Fetch-User", "?1")
+	req.Header.Set("Sec-GPC", "1")
+	req.Header.Set("TE", "trailers")
+	req.Header.Set("Pragma", "no-cache")
+
+	// Cabeçalhos Client Hints (disponíveis em navegadores modernos)
+	req.Header.Set("Sec-CH-UA", `"Chromium";v="112", "Google Chrome";v="112", "Not:A-Brand";v="99"`)
+	req.Header.Set("Sec-CH-UA-Mobile", "?0")
+	req.Header.Set("Sec-CH-UA-Platform", `"Windows"`)
+	req.Header.Set("Origin", fmt.Sprintf("%s://%s", req.URL.Scheme, req.URL.Host))
 }
 
 // TestURL faz uma requisição HEAD e retorna true se o status code estiver entre 200 e 399.
