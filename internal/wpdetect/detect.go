@@ -48,10 +48,7 @@ func IsWordPress(baseURL string) (bool, string) {
 	urlsToTry = append(urlsToTry, wwwWPURL.String())
 
 	// subdomínio blog.
-	host := parsedURL.Host
-	if strings.HasPrefix(host, "www.") {
-		host = host[4:]
-	}
+	host := strings.TrimPrefix(parsedURL.Host, "www.")
 	subdomainURL := *parsedURL
 	subdomainURL.Host = "blog." + host
 	urlsToTry = append(urlsToTry, subdomainURL.String())
