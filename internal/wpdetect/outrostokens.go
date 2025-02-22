@@ -132,12 +132,6 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`AC[0-9a-fA-F]{32}`),
 	},
-	/* {
-		ItemTitle:  "Twilio",
-		FieldTitle: "Auth Token",
-		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`[0-9a-fA-F]{32}`), // Possível confusão com chaves genéricas, mas comum no Twilio
-	}, */
 	{
 		ItemTitle:  "Twilio",
 		FieldTitle: "Webhook",
@@ -226,7 +220,7 @@ var tokenPatterns = []TokenPattern{
 		ItemTitle:  "HubSpot",
 		FieldTitle: "Private App Token",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`pat-(na|eu)1-[a-fA-F\\d]{4}(?:[a-fA-F\\d]{4}-){4}[a-fA-F\\d]{12}`),
+		Pattern:    regexp.MustCompile(`pat-(na|eu)1-[a-fA-F\d]{4}(?:[a-fA-F\d]{4}-){4}[a-fA-F\d]{12}`),
 	},
 	{
 		ItemTitle:  "SSH Key",
@@ -234,12 +228,6 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`[-]{3,}BEGIN (RSA|DSA|EC|OPENSSH|PRIVATE)? ?(PRIVATE)? KEY[-]{3,}[\\D\\d\\s]*[-]{3,}END (RSA|DSA|EC|OPENSSH|PRIVATE)? ?(PRIVATE)? KEY[-]{3,}(\\n)?`),
 	},
-	/* {
-		ItemTitle:  "UUID (genérico)",
-		FieldTitle: "uuid",
-		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`[a-fA-F\\d]{4}(?:[a-fA-F\\d]{4}-){4}[a-fA-F\\d]{12}`),
-	}, */
 	{
 		ItemTitle:  "Amazon MWS",
 		FieldTitle: "Auth Token",
@@ -267,13 +255,25 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9\.[A-Za-z0-9_=-]+\.[A-Za-z0-9_=-]+`),
 	},
-	/* // Basic auth no formato user:pass (cuidado com falsos positivos)
+	// Tokens Getnet com formato UUID e valores entre aspas simples ou duplas
 	{
-		ItemTitle:  "BasicAuth",
-		FieldTitle: "Credentials",
+		ItemTitle:  "Getnet",
+		FieldTitle: "Client ID",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`[A-Za-z0-9+\/=]+:[A-Za-z0-9+\/=]+`), // Pode gerar falsos positivos
-	}, */
+		Pattern:    regexp.MustCompile(`(?i)client_id\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+	},
+	{
+		ItemTitle:  "Getnet",
+		FieldTitle: "Client Secret",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)client_secret\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+	},
+	{
+		ItemTitle:  "Getnet",
+		FieldTitle: "Seller ID",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)seller_id\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+	},
 }
 
 // CheckAllTokens procura todos os tokens definidos em tokenPatterns e salva em tokens.txt
