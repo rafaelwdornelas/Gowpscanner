@@ -274,6 +274,13 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`(?i)seller_id\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
 	},
+	// Detecção da URL da API Getnet
+	{
+		ItemTitle:  "Getnet",
+		FieldTitle: "API URL",
+		FieldType:  "url",
+		Pattern:    regexp.MustCompile(`https:\/\/api\.getnet\.com\.br`),
+	},
 }
 
 // CheckAllTokens procura todos os tokens definidos em tokenPatterns e salva em tokens.txt
