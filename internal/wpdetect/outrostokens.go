@@ -281,6 +281,72 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "url",
 		Pattern:    regexp.MustCompile(`https:\/\/api\.getnet\.com\.br`),
 	},
+
+	// APIs de pagamento adicionais
+
+	// Mercado Pago
+	{
+		ItemTitle:  "Mercado Pago",
+		FieldTitle: "Access Token",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)mercado[_-]?pago[_-]?access[_-]?token\s*[:=]\s*['"]?([A-Za-z0-9-]+)['"]?`),
+	},
+	// PagSeguro
+	{
+		ItemTitle:  "PagSeguro",
+		FieldTitle: "Token",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)pagseguro\s*token\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
+	},
+	// Cielo - Merchant ID
+	{
+		ItemTitle:  "Cielo",
+		FieldTitle: "Merchant ID",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)merchant_id\s*[:=]\s*['"]?([A-Za-z0-9-]+)['"]?`),
+	},
+	// Cielo - Merchant Key
+	{
+		ItemTitle:  "Cielo",
+		FieldTitle: "Merchant Key",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)merchant_key\s*[:=]\s*['"]?([A-Za-z0-9-]+)['"]?`),
+	},
+	// Pagar.me
+	{
+		ItemTitle:  "Pagar.me",
+		FieldTitle: "API Key",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)pagar\.?me[_-]?api[_-]?key\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
+	},
+	// Adyen
+	{
+		ItemTitle:  "Adyen",
+		FieldTitle: "API Key",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)adyen[_-]?api[_-]?key\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
+	},
+	// Iugu
+	{
+		ItemTitle:  "Iugu",
+		FieldTitle: "API Token",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)iugu[_-]?api[_-]?token\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
+	},
+	// Rede - Merchant ID
+	{
+		ItemTitle:  "Rede",
+		FieldTitle: "Merchant ID",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)rede[_-]?merchant[_-]?id\s*[:=]\s*['"]?([A-Za-z0-9-]+)['"]?`),
+	},
+	// Rede - Access Token
+	{
+		ItemTitle:  "Rede",
+		FieldTitle: "Access Token",
+		FieldType:  "concealed",
+		Pattern:    regexp.MustCompile(`(?i)rede[_-]?access[_-]?token\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
+	},
 }
 
 // CheckAllTokens procura todos os tokens definidos em tokenPatterns e salva em tokens.txt
