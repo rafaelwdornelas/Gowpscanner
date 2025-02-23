@@ -363,7 +363,7 @@ func CheckAllTokens(content string, url string) {
 		if len(matches) > 0 {
 			for _, match := range matches {
 				registro := fmt.Sprintf("%s|%s|%s", tokenName, match, url)
-				utils.Warning(registro)
+				utils.Warning("%s", registro)
 				utils.BeepAlert()
 				utils.LogSave(registro, "tokens.txt")
 			}
