@@ -4,7 +4,6 @@ package scanner
 import (
 	"fmt"
 	"strings"
-	"sync"
 
 	"Gowpscanner/internal/utils"
 )
@@ -22,7 +21,6 @@ var pluginsCheck []string
 var (
 	dynamicFindersMap map[interface{}]interface{}
 	dfErr             error
-	dfOnce            sync.Once
 )
 
 // CheckPlugins faz a varredura de plugins vulneráveis
