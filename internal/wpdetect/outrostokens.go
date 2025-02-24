@@ -27,19 +27,21 @@ var tokenPatterns = []TokenPattern{
 		ItemTitle:  "AWS",
 		FieldTitle: "Secret Access Key",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)aws_secret_access_key\s*=\s*([0-9a-zA-Z/+=]{40})`),
+		// Permite valor direto ou entre aspas simples/duplas
+		Pattern: regexp.MustCompile(`(?i)aws_secret_access_key\s*=\s*['"]?([0-9a-zA-Z/+=]{40})['"]?`),
 	},
 	{
 		ItemTitle:  "AWS",
 		FieldTitle: "Session Token",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)aws_session_token\s*=\s*([A-Za-z0-9/+=]{16,})`),
+		Pattern:    regexp.MustCompile(`(?i)aws_session_token\s*=\s*['"]?([A-Za-z0-9/+=]{16,})['"]?`),
 	},
 	{
 		ItemTitle:  "Azure",
 		FieldTitle: "Shared Key",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)SharedKey\s+[^\s]+:[A-Za-z0-9+/=]+`),
+		// Não há atribuição; o padrão permanece o mesmo
+		Pattern: regexp.MustCompile(`(?i)SharedKey\s+[^\s]+:[A-Za-z0-9+/=]+`),
 	},
 	{
 		ItemTitle:  "Azure",
@@ -95,7 +97,7 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "url",
 		Pattern:    regexp.MustCompile(`https:\/\/hooks\\.slack\\.com\/services\/[A-Z0-9]{9}\/[A-Z0-9]{9,11}\/[a-zA-Z0-9]+`),
 	},
-	{
+	/*{
 		ItemTitle:  "Stripe",
 		FieldTitle: "Publishable Key",
 		FieldType:  "concealed",
@@ -106,7 +108,7 @@ var tokenPatterns = []TokenPattern{
 		FieldTitle: "Secret Key",
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`sk_(test|live)_[0-9a-zA-Z]{24,99}`),
-	},
+	},*/
 	{
 		ItemTitle:  "Square",
 		FieldTitle: "Access Token",
@@ -165,7 +167,7 @@ var tokenPatterns = []TokenPattern{
 		ItemTitle:  "Heroku",
 		FieldTitle: "API Key",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)heroku_api_key\s*=\s*([0-9a-fA-F]{32})`),
+		Pattern:    regexp.MustCompile(`(?i)heroku_api_key\s*=\s*['"]?([0-9a-fA-F]{32})['"]?`),
 	},
 	{
 		ItemTitle:  "Google",
@@ -254,26 +256,26 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9\.[A-Za-z0-9_=-]+\.[A-Za-z0-9_=-]+`),
 	},
-	// Tokens Getnet com formato UUID e valores entre aspas simples ou duplas
+	// Tokens Getnet para ambiente sem aspas e com prefixo GETNET_
 	{
 		ItemTitle:  "Getnet",
 		FieldTitle: "Client ID",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)client_id\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+		Pattern:    regexp.MustCompile(`(?i)getnet[_]?client[_]?id\s*[:=]\s*['"]?([a-f0-9-]+)['"]?`),
 	},
 	{
 		ItemTitle:  "Getnet",
 		FieldTitle: "Client Secret",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)client_secret\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+		Pattern:    regexp.MustCompile(`(?i)getnet[_]?client[_]?secret\s*[:=]\s*['"]?([A-Za-z0-9]+)['"]?`),
 	},
 	{
 		ItemTitle:  "Getnet",
 		FieldTitle: "Seller ID",
 		FieldType:  "concealed",
-		Pattern:    regexp.MustCompile(`(?i)seller_id\s*[:=]\s*['"]([a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12})['"]`),
+		Pattern:    regexp.MustCompile(`(?i)getnet[_]?seller[_]?id\s*[:=]\s*['"]?([a-f0-9-]+)['"]?`),
 	},
-	// Detecção da URL da API Getnet
+	// Detecção da URL da API Getnet permanece igual:
 	{
 		ItemTitle:  "Getnet",
 		FieldTitle: "API URL",

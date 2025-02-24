@@ -61,14 +61,14 @@ func newHTTPTransport() *http.Transport {
 	transport := &http.Transport{
 		// DialContext para conexões não-TLS (caso necessário).
 		DialContext: (&net.Dialer{
-			Timeout:   5 * time.Second,
+			Timeout:   10 * time.Second,
 			KeepAlive: 30 * time.Second,
 		}).DialContext,
 		// Substitui o DialTLS padrão pela nossa implementação com uTLS.
 		DialTLS: dialTLS,
 		// Timeouts e configurações do transporte.
-		TLSHandshakeTimeout:   5 * time.Second,
-		ResponseHeaderTimeout: 5 * time.Second,
+		TLSHandshakeTimeout:   10 * time.Second,
+		ResponseHeaderTimeout: 15 * time.Second,
 		ExpectContinueTimeout: 1 * time.Second,
 		DisableKeepAlives:     false,
 		IdleConnTimeout:       90 * time.Second,
@@ -87,7 +87,7 @@ func newHTTPTransport() *http.Transport {
 
 // Global http.Client reutilizável para todas as requisições, com timeout reduzido para acelerar o scan.
 var client = &http.Client{
-	Timeout:   5 * time.Second,
+	Timeout:   10 * time.Second,
 	Transport: newHTTPTransport(),
 	// Evita seguir redirecionamentos automaticamente.
 	CheckRedirect: func(req *http.Request, via []*http.Request) error {
