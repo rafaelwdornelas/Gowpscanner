@@ -101,6 +101,12 @@ func CheckEnv(baseURL string) {
 
 							// Salva a saída no arquivo mysqlconfigs.txt
 							utils.LogSave(envOutput, "mysqlconfigs.txt")
+							//verifica se o host tem www. e remove
+							if strings.Contains(envValues["DB_HOST"], "www.") {
+								envValues["DB_HOST"] = strings.Replace(envValues["DB_HOST"], "www.", "", -1)
+								envOutput = fmt.Sprintf("URL: %s HOST:%s USERNAME:%s%s PASSWORD:%s%s DATABASE:%s", envURL, envValues["DB_HOST"], envValues["DB_USERNAME"], envValues["DB_USER"], envValues["DB_PASSWORD"], envValues["DB_PASS"], envValues["DB_DATABASE"])
+								utils.LogSave(envOutput, "mysqlconfigs.txt")
+							}
 							utils.Warning(envOutput)
 							utils.BeepAlert()
 						}

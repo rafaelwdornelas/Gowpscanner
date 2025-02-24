@@ -66,6 +66,16 @@ func CheckConfigBackups(baseURL string) {
 				configOutput += linha
 			}
 			utils.LogSave(configOutput, "mysqlconfigs.txt")
+			//verifica se o host tem www. e remove
+			if strings.Contains(configValues["DB_HOST"], "www.") {
+				configValues["DB_HOST"] = strings.Replace(configValues["DB_HOST"], "www.", "", -1)
+				configOutput = fmt.Sprintf("URL: %s", urlConfig)
+				for campo, valor := range configValues {
+					linha := fmt.Sprintf("  %s: %s", campo, valor)
+					configOutput += linha
+				}
+				utils.LogSave(configOutput, "mysqlconfigs.txt")
+			}
 		}
 	}
 }
