@@ -3,7 +3,6 @@ package wpdetect
 import (
 	"fmt"
 	"regexp"
-	"strings"
 
 	"Gowpscanner/internal/utils"
 )
@@ -349,24 +348,63 @@ var tokenPatterns = []TokenPattern{
 	},
 }
 
-// CheckAllTokens procura todos os tokens definidos em tokenPatterns e salva em tokens.txt
-// no formato "NOME_DO_TOKEN|TOKEN_ENCONTRADO".
+// CheckAllTokens procura todos os tokens definidos em tokenPatterns, agrupa por serviço e só exibe
+// os tokens dos serviços que não dependem de múltiplos campos ou somente se todos os campos obrigatórios
+// forem encontrados (ex.: Cielo e Getnet).
 func CheckAllTokens(content string, url string) {
-	for _, tp := range tokenPatterns {
-		// Se o ItemTitle não estiver preenchido, usamos o FieldTitle.
-		tokenName := tp.ItemTitle
-		if strings.TrimSpace(tokenName) == "" {
-			tokenName = tp.FieldTitle
-		}
+	// Mapa para agrupar os tokens encontrados: serviço -> campo -> valor
+	found := make(map[string]map[string]string)
 
-		matches := tp.Pattern.FindAllString(content, -1)
+	// Itera por cada padrão, buscando as correspondências
+	for _, tp := range tokenPatterns {
+		// Usa FindAllStringSubmatch para capturar grupos, se houver
+		matches := tp.Pattern.FindAllStringSubmatch(content, -1)
 		if len(matches) > 0 {
-			for _, match := range matches {
-				registro := fmt.Sprintf("%s|%s|%s", tokenName, match, url)
-				utils.Warning("%s", registro)
-				utils.BeepAlert()
-				utils.LogSave(registro, "tokens.txt")
+			// Usa apenas a primeira correspondência para cada padrão
+			var tokenValue string
+			// Se existir um grupo capturado, usa-o; caso contrário, usa a string encontrada
+			if len(matches[0]) > 1 {
+				tokenValue = matches[0][1]
+			} else {
+				tokenValue = matches[0][0]
 			}
+			// Inicializa o mapa do serviço se necessário
+			if found[tp.ItemTitle] == nil {
+				found[tp.ItemTitle] = make(map[string]string)
+			}
+			// Registra o token encontrado para o campo
+			found[tp.ItemTitle][tp.FieldTitle] = tokenValue
+		}
+	}
+
+	// Agora, para serviços com múltiplos campos obrigatórios, só exibe se todos forem encontrados
+	// Exemplo: Cielo precisa de Merchant ID e Merchant Key; Getnet precisa de Client ID, Client Secret e Seller ID
+	requiredFields := map[string][]string{
+		"Cielo":  {"Merchant ID", "Merchant Key"},
+		"Getnet": {"Client ID", "Client Secret", "Seller ID"},
+	}
+
+	for service, fields := range found {
+		// Se o serviço possui campos obrigatórios, verifica se todos foram encontrados
+		if req, exists := requiredFields[service]; exists {
+			missing := false
+			for _, field := range req {
+				if _, ok := fields[field]; !ok {
+					missing = true
+					break
+				}
+			}
+			// Se algum campo estiver faltando, ignora os tokens deste serviço
+			if missing {
+				continue
+			}
+		}
+		// Exibe os tokens encontrados para o serviço
+		for _, tokenValue := range fields {
+			registro := fmt.Sprintf("%s|%s|%s", service, tokenValue, url)
+			utils.Warning("%s", registro)
+			utils.BeepAlert()
+			utils.LogSave(registro, "tokens.txt")
 		}
 	}
 }
