@@ -249,13 +249,13 @@ var tokenPatterns = []TokenPattern{
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`00[0-9a-zA-Z]{28}\.[0-9a-zA-Z]{6}\.[0-9a-zA-Z-]{43}`),
 	},
-	// Zoom JWT token (exemplo)
+	/* // Zoom JWT token (exemplo)
 	{
 		ItemTitle:  "Zoom",
 		FieldTitle: "JWT Token",
 		FieldType:  "concealed",
 		Pattern:    regexp.MustCompile(`eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9\.[A-Za-z0-9_=-]+\.[A-Za-z0-9_=-]+`),
-	},
+	}, */
 	// Tokens Getnet para ambiente sem aspas e com prefixo GETNET_
 	{
 		ItemTitle:  "Getnet",
