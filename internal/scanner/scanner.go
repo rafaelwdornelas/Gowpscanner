@@ -7,6 +7,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"regexp"
 	"strconv"
 	"strings"
 	"sync"
@@ -225,11 +226,16 @@ func Run(domainsFile string) error {
 
 	limitCh := make(chan struct{}, concurrencyLimit)
 	var wg sync.WaitGroup
+	re := regexp.MustCompile(`^\d+$`)
 
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		domain := scanner.Text()
 		if domain == "" || !strings.Contains(domain, ".") {
+			continue
+		}
+		domainsplit := strings.Split(domain, ".")
+		if re.MatchString(domainsplit[0]) {
 			continue
 		}
 
